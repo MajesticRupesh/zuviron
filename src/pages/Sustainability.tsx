@@ -141,7 +141,7 @@ const Sustainability = () => {
           >
             <h2 className="text-3xl font-bold mb-8">Our Certifications</h2>
             <div className="flex flex-wrap justify-center gap-8">
-              {certifications.map((cert, index) => (
+              {certifications.map((cert) => (
                 <div
                   key={cert.name}
                   className="text-center"
