@@ -1,26 +1,8 @@
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-
-const fadeIn: Variants = {
-  initial: { 
-    opacity: 0, 
-    y: 20 
-  },
-  animate: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.6 }
-  }
-};
-
-const stagger: Variants = {
-  animate: {
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import GradientText from '../components/ui/GradientText';
+import BackgroundPattern from '../components/ui/BackgroundPattern';
 
 interface FormData {
   name: string;
@@ -76,40 +58,67 @@ const Contact = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gray-900 text-white py-20">
+      <section className="relative bg-gray-900 text-white min-h-[60vh] flex items-center">
         <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
-            alt="Contact Hero"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/70" />
+          <div className="grid grid-cols-3 h-full">
+            <div className="relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
+                alt="Office Building"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+            <div className="relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80"
+                alt="Meeting Room"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+            <div className="relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&q=80"
+                alt="Office Interior"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/90 to-gray-900/95" />
+          <div className="absolute inset-0">
+            <BackgroundPattern color="text-green-500/10" />
+          </div>
         </div>
+
         <div className="container mx-auto px-4 relative">
           <motion.div
-            variants={stagger}
-            initial="initial"
-            animate="animate"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <motion.h1 
-              variants={fadeIn}
-              className="text-4xl md:text-5xl font-bold mb-6"
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block mb-6 px-6 py-2 rounded-full bg-green-500/10 border border-green-500/20"
             >
-              Get in Touch
-            </motion.h1>
-            <motion.p 
-              variants={fadeIn}
-              className="text-xl text-gray-300"
-            >
+              <span className="text-green-400">Contact Us</span>
+            </motion.div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Let's Start a{' '}
+              <GradientText gradient="from-green-300 via-green-400 to-green-200">
+                Conversation
+              </GradientText>
+            </h1>
+            <p className="text-xl text-gray-300">
               Have a question or interested in our sustainable solutions? We'd love to hear from you.
-            </motion.p>
+            </p>
           </motion.div>
         </div>
       </section>
 
       {/* Contact Info Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {contactInfo.map((info, index) => (
@@ -119,16 +128,19 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white p-8 rounded-lg shadow-lg text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className="group relative"
               >
-                <div className="relative w-16 h-16 mx-auto mb-6">
-                  <div className="absolute inset-0 bg-green-100 rounded-full transform transition-transform duration-300 group-hover:scale-110" />
-                  <div className="relative flex items-center justify-center h-full text-2xl text-green-600">
-                    {info.icon}
+                <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="relative w-16 h-16 mx-auto mb-6">
+                    <div className="absolute inset-0 bg-gradient-to-br from-green-100 to-green-50 rounded-xl transform transition-transform duration-300 group-hover:rotate-6" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-green-100 rounded-xl transform transition-transform duration-300 group-hover:-rotate-6" />
+                    <div className="relative flex items-center justify-center h-full text-2xl text-green-600">
+                      {info.icon}
+                    </div>
                   </div>
+                  <h3 className="text-xl font-semibold mb-4 text-center">{info.title}</h3>
+                  <p className="text-gray-600 text-center">{info.content}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-4">{info.title}</h3>
-                <p className="text-gray-600">{info.content}</p>
               </motion.div>
             ))}
           </div>
@@ -140,9 +152,14 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-lg shadow-lg"
+              className="bg-white rounded-2xl p-8 shadow-xl"
             >
-              <h2 className="text-3xl font-bold mb-8">Send us a Message</h2>
+              <h2 className="text-3xl font-bold mb-8">
+                Send us a{' '}
+                <GradientText gradient="from-green-600 to-green-400">
+                  Message
+                </GradientText>
+              </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -156,7 +173,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors duration-200"
                       placeholder="John Doe"
                     />
                   </div>
@@ -171,7 +188,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors duration-200"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -187,7 +204,7 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors duration-200"
                       placeholder="+1 (555) 000-0000"
                     />
                   </div>
@@ -201,7 +218,7 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors duration-200"
                     >
                       <option value="">Select a subject</option>
                       <option value="general">General Inquiry</option>
@@ -222,7 +239,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors duration-200 resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors duration-200 resize-none"
                     placeholder="How can we help you?"
                   />
                 </div>
@@ -230,10 +247,10 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full py-3 px-6 rounded-lg text-white font-semibold transition-all duration-200 
+                    className={`w-full py-4 px-6 rounded-xl text-white font-semibold transition-all duration-200 
                       ${isSubmitting 
                         ? 'bg-gray-400 cursor-not-allowed' 
-                        : 'bg-green-600 hover:bg-green-700 transform hover:-translate-y-1'
+                        : 'bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 transform hover:-translate-y-1'
                       }`}
                   >
                     {isSubmitting ? (
@@ -251,7 +268,7 @@ const Contact = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-green-100 text-green-700 rounded-lg text-center"
+                    className="p-4 bg-green-100 text-green-700 rounded-xl text-center"
                   >
                     Thank you for your message! We'll get back to you soon.
                   </motion.div>
@@ -260,7 +277,7 @@ const Contact = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-red-100 text-red-700 rounded-lg text-center"
+                    className="p-4 bg-red-100 text-red-700 rounded-xl text-center"
                   >
                     Oops! Something went wrong. Please try again later.
                   </motion.div>
@@ -268,34 +285,62 @@ const Contact = () => {
               </form>
             </motion.div>
 
-            {/* Map Section */}
+            {/* Map & Info Section */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-lg shadow-lg"
+              className="space-y-8"
             >
-              <h2 className="text-3xl font-bold mb-8">Visit Us</h2>
-              <div className="relative h-[400px] rounded-lg overflow-hidden">
-                <iframe
-                  title="Office Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1!2d-73.98!3d40.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM40zMCcwMC4wIk4gNzPCsDU4JzQ4LjAiVw!5e0!3m2!1sen!2sus!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0"
-                />
+              <div className="bg-white rounded-2xl p-8 shadow-xl">
+                <h2 className="text-3xl font-bold mb-8">
+                  Visit Our{' '}
+                  <GradientText gradient="from-green-600 to-green-400">
+                    Office
+                  </GradientText>
+                </h2>
+                <div className="relative h-[300px] rounded-xl overflow-hidden mb-8">
+                  <iframe
+                    title="Office Location"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1!2d-73.98!3d40.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM40zMCcwMC4wIk4gNzPCsDU4JzQ4LjAiVw!5e0!3m2!1sen!2sus!4v1234567890"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="absolute inset-0"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-4">Office Hours</h3>
+                  <div className="space-y-2 text-gray-600">
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p>Saturday: 10:00 AM - 4:00 PM</p>
+                    <p>Sunday: Closed</p>
+                  </div>
+                </div>
               </div>
-              <div className="mt-6">
-                <h3 className="text-xl font-semibold mb-4">Office Hours</h3>
-                <div className="space-y-2 text-gray-600">
-                  <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                  <p>Saturday: 10:00 AM - 4:00 PM</p>
-                  <p>Sunday: Closed</p>
+
+              <div className="bg-white rounded-2xl p-8 shadow-xl">
+                <h3 className="text-xl font-semibold mb-6">Connect With Us</h3>
+                <div className="flex space-x-4">
+                  {socialLinks.map((link, index) => (
+                    <motion.a
+                      key={link.name}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="w-12 h-12 rounded-xl bg-gray-50 hover:bg-gray-100 flex items-center justify-center text-gray-600 hover:text-green-600 transition-colors duration-200"
+                    >
+                      {link.icon}
+                    </motion.a>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -321,6 +366,24 @@ const contactInfo = [
     title: 'Address',
     content: '123 Innovation Street, Tech City, TC 12345',
     icon: <FaMapMarkerAlt />,
+  },
+];
+
+const socialLinks = [
+  {
+    name: 'LinkedIn',
+    url: '#',
+    icon: <FaLinkedin className="w-6 h-6" />,
+  },
+  {
+    name: 'Twitter',
+    url: '#',
+    icon: <FaTwitter className="w-6 h-6" />,
+  },
+  {
+    name: 'Instagram',
+    url: '#',
+    icon: <FaInstagram className="w-6 h-6" />,
   },
 ];
 

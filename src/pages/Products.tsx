@@ -1,100 +1,138 @@
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
-const fadeIn: Variants = {
-  initial: { 
-    opacity: 0, 
-    y: 20 
-  },
-  animate: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.6 }
-  }
-};
-
-const stagger: Variants = {
-  animate: {
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
+import { FaLeaf, FaShieldAlt, FaTools, FaRecycle } from 'react-icons/fa';
+import GradientText from '../components/ui/GradientText';
+import BackgroundPattern from '../components/ui/BackgroundPattern';
 
 const Products = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gray-900 text-white py-20">
+      <section className="relative bg-gray-900 text-white py-32">
         <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1565108475579-8074e4fc7874?auto=format&fit=crop&q=80"
-            alt="Product showcase"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/75" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 to-gray-900/80" />
+          <div className="grid grid-cols-3 h-full">
+            <div className="relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1565108475579-8074e4fc7874?auto=format&fit=crop&q=80"
+                alt="Sustainable materials"
+                className="absolute inset-0 w-full h-full object-cover transform scale-110 hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            <div className="relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80"
+                alt="Construction materials"
+                className="absolute inset-0 w-full h-full object-cover transform scale-110 hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            <div className="relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80"
+                alt="Eco-friendly solutions"
+                className="absolute inset-0 w-full h-full object-cover transform scale-110 hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-900/80 to-gray-900/90" />
+          <div className="absolute inset-0">
+            <div className="h-full w-full" style={{ 
+              background: `radial-gradient(circle at 50% 50%, rgba(34,197,94,0.1) 0%, rgba(0,0,0,0) 50%)` 
+            }} />
+          </div>
+          <div className="absolute inset-0 mix-blend-multiply">
+            <BackgroundPattern color="text-green-500/10" />
+          </div>
         </div>
+        
         <div className="container mx-auto px-4 relative">
           <motion.div
-            variants={stagger}
-            initial="initial"
-            animate="animate"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <motion.h1 
-              variants={fadeIn}
-              className="text-4xl md:text-5xl font-bold mb-6"
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block mb-6 px-6 py-2 rounded-full bg-green-500/10 border border-green-500/20"
             >
-              Our Products
-            </motion.h1>
-            <motion.p 
-              variants={fadeIn}
-              className="text-xl text-gray-300"
-            >
-              Innovative building materials made from recycled thermocol waste
-            </motion.p>
+              <span className="text-green-400">Sustainable Building Materials</span>
+            </motion.div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Innovative Solutions for{' '}
+              <GradientText gradient="from-green-300 via-green-400 to-green-200">
+                Sustainable Construction
+              </GradientText>
+            </h1>
+            <p className="text-xl text-gray-300 mb-12">
+              Transform waste into high-performance building materials with our cutting-edge technology
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                to="/contact"
+                className="px-8 py-4 bg-green-600 hover:bg-green-700 rounded-full text-white transition-all duration-300 transform hover:scale-105"
+              >
+                Request a Quote
+              </Link>
+              <Link
+                to="/case-studies"
+                className="px-8 py-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all duration-300"
+              >
+                View Case Studies
+              </Link>
+            </div>
           </motion.div>
         </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-green-500/20 to-transparent" />
+        <div className="absolute left-1/2 bottom-0 w-px h-24 bg-gradient-to-t from-green-500/20 to-transparent transform -translate-x-1/2" />
       </section>
 
-      {/* Products Grid */}
-      <section className="py-16 md:py-24">
+      {/* Product Categories */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Our Product Categories
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Explore our range of sustainable building materials designed for various construction needs
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product, index) => (
+            {productCategories.map((category, index) => (
               <motion.div
-                key={product.title}
+                key={category.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="relative aspect-w-16 aspect-h-9">
+                <div className="aspect-w-16 aspect-h-9">
                   <img 
-                    src={product.image} 
-                    alt={product.title}
+                    src={category.image} 
+                    alt={category.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-4 left-4 text-6xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {product.icon}
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
-                  <p className="text-gray-600 mb-4">{product.description}</p>
-                  <div className="space-y-2">
-                    <h4 className="font-medium text-gray-900">Applications:</h4>
-                    <ul className="text-gray-600 space-y-2">
-                      {product.applications.map((app) => (
-                        <li key={app} className="flex items-center">
-                          <span className="w-2 h-2 bg-green-600 rounded-full mr-2" />
-                          {app}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-2xl font-bold text-white mb-2">{category.title}</h3>
+                  <p className="text-gray-200 mb-4">{category.description}</p>
+                  <Link
+                    to={`/products/${category.slug}`}
+                    className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors"
+                  >
+                    Learn More
+                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -102,30 +140,17 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="relative bg-gray-50 py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <img 
-            src="https://images.unsplash.com/photo-1635048424329-a9bfb146d7aa?auto=format&fit=crop&q=80"
-            alt="Background pattern"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="container mx-auto px-4 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center max-w-2xl mx-auto mb-16"
-          >
+      {/* Features Grid */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Product Features
+              Why Choose Our Products?
             </h2>
-            <p className="text-gray-600">
-              Our products are designed to meet the highest standards of quality and sustainability
+            <p className="text-gray-600 text-lg">
+              Our materials are engineered to deliver superior performance while maintaining environmental responsibility
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
@@ -135,15 +160,12 @@ const Products = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white p-6 rounded-lg shadow-md text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
               >
-                <div className="relative w-16 h-16 mx-auto mb-4">
-                  <div className="absolute inset-0 bg-green-100 rounded-full transform transition-transform duration-300 group-hover:scale-110" />
-                  <div className="relative flex items-center justify-center h-full text-4xl text-green-600">
-                    {feature.icon}
-                  </div>
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                  {feature.icon}
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
               </motion.div>
             ))}
@@ -152,101 +174,83 @@ const Products = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-16 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80"
-            alt="Call to action background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-green-600/90" />
-        </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Transform Your Next Project?
-            </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Contact us to learn more about our products and how they can benefit your construction needs.
-            </p>
-            <Link
-              to="/contact"
-              className="btn bg-white text-green-600 hover:bg-gray-100 hover:scale-105 transform transition-all duration-300"
-            >
-              Get in Touch
-            </Link>
-          </motion.div>
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-4">
+          <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl overflow-hidden">
+            <div className="relative px-6 py-24 md:px-12 text-center">
+              <div className="absolute inset-0 mix-blend-multiply opacity-20">
+                <BackgroundPattern color="text-green-500" />
+              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  Ready to Transform Your Next Project?
+                </h2>
+                <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                  Contact us to learn more about our products and how they can benefit your construction needs
+                </p>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center px-8 py-4 bg-green-600 hover:bg-green-700 rounded-full text-white transition-all duration-300 transform hover:scale-105"
+                >
+                  Get Started Today
+                </Link>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
   );
 };
 
-const products = [
+const productCategories = [
   {
-    title: 'Thermocol Sheets',
-    description: 'High-quality sheets made from recycled thermocol, perfect for various construction applications.',
-    icon: '📋',
-    image: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&q=80',
-    applications: [
-      'Wall cladding',
-      'Ceiling panels',
-      'Partition walls',
-      'Decorative elements',
-    ],
+    title: 'Construction Panels',
+    description: 'High-performance panels made from recycled materials for walls and partitions.',
+    image: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89',
+    slug: 'construction-panels'
   },
   {
-    title: 'Building Panels',
-    description: 'Durable and lightweight panels that provide excellent insulation and structural support.',
-    icon: '🏗️',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80',
-    applications: [
-      'External facades',
-      'Interior walls',
-      'Roofing systems',
-      'Floor underlayment',
-    ],
+    title: 'Insulation Materials',
+    description: 'Eco-friendly insulation solutions for superior thermal and acoustic performance.',
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12',
+    slug: 'insulation-materials'
   },
   {
-    title: 'Custom Solutions',
-    description: 'Tailored products designed to meet specific project requirements and specifications.',
-    icon: '⚡',
-    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80',
-    applications: [
-      'Architectural features',
-      'Specialized installations',
-      'Unique design elements',
-      'Bespoke applications',
-    ],
-  },
+    title: 'Decorative Elements',
+    description: 'Sustainable architectural elements that combine aesthetics with functionality.',
+    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122',
+    slug: 'decorative-elements'
+  }
 ];
 
 const features = [
   {
     title: 'Eco-Friendly',
-    description: 'Made from 100% recycled materials',
-    icon: '🌱',
+    description: 'Made from 100% recycled materials, reducing environmental impact.',
+    icon: <FaLeaf className="w-6 h-6 text-green-600" />
   },
   {
     title: 'Durable',
-    description: 'Long-lasting and weather-resistant',
-    icon: '💪',
+    description: 'Engineered for long-lasting performance and reliability.',
+    icon: <FaShieldAlt className="w-6 h-6 text-green-600" />
   },
   {
-    title: 'Lightweight',
-    description: 'Easy to transport and install',
-    icon: '🪶',
+    title: 'Versatile',
+    description: 'Adaptable for various construction applications.',
+    icon: <FaTools className="w-6 h-6 text-green-600" />
   },
   {
-    title: 'Customizable',
-    description: 'Adaptable to various needs',
-    icon: '🎨',
-  },
+    title: 'Sustainable',
+    description: 'Promotes circular economy and waste reduction.',
+    icon: <FaRecycle className="w-6 h-6 text-green-600" />
+  }
 ];
 
 export default Products; 

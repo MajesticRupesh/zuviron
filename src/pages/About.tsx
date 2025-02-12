@@ -1,139 +1,183 @@
-import { motion, Variants } from 'framer-motion';
-
-const fadeIn: Variants = {
-  initial: { 
-    opacity: 0, 
-    y: 20 
-  },
-  animate: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.6 }
-  }
-};
-
-const slideIn: Variants = {
-  initial: {
-    opacity: 0,
-    x: -30
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.8 }
-  }
-};
+import { motion } from 'framer-motion';
+import { FaLeaf, FaUsers, FaLightbulb, FaGlobeAmericas, FaRecycle } from 'react-icons/fa';
+import GradientText from '../components/ui/GradientText';
+import BackgroundPattern from '../components/ui/BackgroundPattern';
 
 const About = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gray-900 text-white py-20">
+      <section className="relative bg-gray-900 text-white min-h-[70vh] flex items-center">
         <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80"
-            alt="Innovative building" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 to-gray-900/70" />
+          <div className="grid grid-cols-2 h-full">
+            <div className="relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80"
+                alt="Innovative building"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+            <div className="relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&q=80"
+                alt="Sustainable solutions"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/90 to-gray-900/95" />
+          <div className="absolute inset-0">
+            <BackgroundPattern color="text-green-500/10" />
+          </div>
         </div>
+
         <div className="container mx-auto px-4 relative">
           <motion.div
-            variants={fadeIn}
-            initial="initial"
-            animate="animate"
-            className="max-w-3xl mx-auto text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About Zuviron Innovations
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block mb-6 px-6 py-2 rounded-full bg-green-500/10 border border-green-500/20"
+            >
+              <span className="text-green-400">Our Story</span>
+            </motion.div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Building a{' '}
+              <GradientText gradient="from-green-300 via-green-400 to-green-200">
+                Sustainable Future
+              </GradientText>
             </h1>
-            <p className="text-xl text-gray-300">
-              Leading the way in sustainable building materials through innovative waste management solutions.
+            <p className="text-xl text-gray-300 max-w-2xl">
+              Leading the way in sustainable building materials through innovative waste management solutions and eco-friendly practices.
             </p>
           </motion.div>
         </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-green-500/20 to-transparent" />
       </section>
 
       {/* Mission Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              variants={slideIn}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission</h2>
-              <p className="text-gray-600 mb-6">
-                At Zuviron Innovations, we are committed to transforming waste materials into valuable building resources. Our focus begins with thermocol waste, but our vision extends to creating a comprehensive circular economy for various waste streams.
-              </p>
-              <p className="text-gray-600">
-                Through innovative technology and sustainable practices, we aim to reduce landfill waste while providing high-quality, eco-friendly building materials to the construction industry.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="relative h-[400px] rounded-lg overflow-hidden shadow-xl"
+              className="relative"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80"
-                alt="Sustainable mission"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-green-600/10" />
+              <div className="relative rounded-2xl overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80"
+                  alt="Our mission"
+                  className="w-full h-[500px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
+              </div>
+              <div className="absolute -bottom-8 left-8 right-8">
+                <div className="bg-white rounded-xl p-6 shadow-xl">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                      <FaLeaf className="w-5 h-5 text-green-600" />
+                    </div>
+                    <h3 className="text-xl font-semibold">Environmental Impact</h3>
+                  </div>
+                  <p className="text-gray-600">
+                    Reducing waste and carbon footprint through innovative recycling solutions.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Our Mission & Vision
+              </h2>
+              <p className="text-gray-600 mb-8 text-lg">
+                At Zuviron Innovations, we are committed to transforming waste materials into valuable building resources. Our focus begins with thermocol waste, but our vision extends to creating a comprehensive circular economy for various waste streams.
+              </p>
+              <div className="space-y-6">
+                {missionPoints.map((point, index) => (
+                  <motion.div
+                    key={point.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex gap-4 items-start"
+                  >
+                    <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      {point.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">{point.title}</h3>
+                      <p className="text-gray-600">{point.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="relative bg-gray-50 py-16 md:py-24 overflow-hidden">
+      <section className="py-24 bg-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
-          <img 
-            src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?auto=format&fit=crop&q=80"
-            alt="Background pattern"
-            className="w-full h-full object-cover"
-          />
+          <BackgroundPattern color="text-gray-900" />
         </div>
+        
         <div className="container mx-auto px-4 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center max-w-2xl mx-auto mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Values</h2>
-            <p className="text-gray-600">
-              Our core values guide everything we do at Zuviron Innovations.
-            </p>
-          </motion.div>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Our Core Values
+              </h2>
+              <p className="text-gray-600 text-lg">
+                The principles that guide our mission and shape our approach to sustainable innovation
+              </p>
+            </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white p-8 rounded-lg shadow-md text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="relative w-20 h-20 mx-auto mb-6">
-                  <img 
-                    src={value.image}
-                    alt={value.title}
-                    className="w-full h-full object-cover rounded-full"
-                  />
-                  <div className="absolute inset-0 bg-green-600/10 rounded-full group-hover:bg-green-600/20 transition-colors duration-300" />
-                  <div className="absolute -inset-1 border-2 border-green-600/20 rounded-full group-hover:scale-110 transition-transform duration-300" />
+                <div className="relative w-16 h-16 mb-6">
+                  <div className="absolute inset-0 bg-green-100 rounded-xl transform transition-transform duration-300 group-hover:rotate-6" />
+                  <div className="absolute inset-0 bg-green-50 rounded-xl transform transition-transform duration-300 group-hover:-rotate-6" />
+                  <div className="relative h-full flex items-center justify-center">
+                    <img 
+                      src={value.image}
+                      alt={value.title}
+                      className="w-10 h-10 object-cover rounded-lg"
+                    />
+                  </div>
                 </div>
-                <div className="text-4xl mb-4">{value.icon}</div>
-                <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
+                <h3 className="text-xl font-semibold mb-4">{value.title}</h3>
                 <p className="text-gray-600">{value.description}</p>
               </motion.div>
             ))}
@@ -142,27 +186,46 @@ const About = () => {
       </section>
 
       {/* Vision Section */}
-      <section className="relative py-16 md:py-24 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1536825211030-094de935f680?auto=format&fit=crop&q=80"
-            alt="Future vision"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-green-600/90" />
+      <section className="relative py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white overflow-hidden">
+        <div className="absolute inset-0 mix-blend-multiply opacity-20">
+          <BackgroundPattern color="text-green-500" />
         </div>
+        
         <div className="container mx-auto px-4 relative">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto"
+            className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Vision</h2>
-            <p className="text-xl mb-8">
-              We envision a future where waste is not a burden but a valuable resource, where sustainable practices are the norm, and where innovation drives positive environmental change.
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              Our Vision for the{' '}
+              <GradientText gradient="from-green-300 via-green-400 to-green-200">
+                Future
+              </GradientText>
+            </h2>
+            <p className="text-xl text-gray-300 mb-12">
+              We envision a world where waste is not a burden but a valuable resource, where sustainable practices are the norm, and where innovation drives positive environmental change.
             </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {visionPoints.map((point, index) => (
+                <motion.div
+                  key={point.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
+                >
+                  <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                    {point.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{point.title}</h3>
+                  <p className="text-gray-400">{point.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
@@ -170,25 +233,58 @@ const About = () => {
   );
 };
 
+const missionPoints = [
+  {
+    title: 'Sustainable Innovation',
+    description: 'Developing cutting-edge solutions for waste management and recycling.',
+    icon: <FaLightbulb className="w-4 h-4 text-green-600" />
+  },
+  {
+    title: 'Global Impact',
+    description: 'Creating positive environmental change on a global scale.',
+    icon: <FaGlobeAmericas className="w-4 h-4 text-green-600" />
+  },
+  {
+    title: 'Community Focus',
+    description: 'Building strong relationships with communities and stakeholders.',
+    icon: <FaUsers className="w-4 h-4 text-green-600" />
+  }
+];
+
 const values = [
   {
     title: 'Sustainability',
-    description: 'We are committed to environmental stewardship and reducing waste through innovative solutions.',
-    icon: '🌍',
+    description: 'Committed to environmental stewardship and reducing waste through innovative solutions.',
     image: 'https://images.unsplash.com/photo-1535687911897-88a42f3cda4f?auto=format&fit=crop&q=80'
   },
   {
     title: 'Innovation',
-    description: 'We continuously explore new technologies and methods to improve our products and processes.',
-    icon: '💡',
+    description: 'Continuously exploring new technologies and methods to improve our products and processes.',
     image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80'
   },
   {
     title: 'Quality',
-    description: 'We maintain the highest standards in our products and services to ensure customer satisfaction.',
-    icon: '⭐',
+    description: 'Maintaining the highest standards in our products and services to ensure customer satisfaction.',
     image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80'
+  }
+];
+
+const visionPoints = [
+  {
+    title: 'Zero Waste Future',
+    description: 'Creating a world where all waste is transformed into valuable resources.',
+    icon: <FaRecycle className="w-6 h-6 text-green-400" />
   },
+  {
+    title: 'Global Sustainability',
+    description: 'Promoting sustainable practices across industries worldwide.',
+    icon: <FaGlobeAmericas className="w-6 h-6 text-green-400" />
+  },
+  {
+    title: 'Innovation Leadership',
+    description: 'Setting new standards in sustainable construction technology.',
+    icon: <FaLightbulb className="w-6 h-6 text-green-400" />
+  }
 ];
 
 export default About; 
