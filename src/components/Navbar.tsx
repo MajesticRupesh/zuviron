@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HiMenu, HiX } from 'react-icons/hi';
+import { LOGO_URL } from '../utils/constants';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center space-x-2">
+            <img 
+              src={LOGO_URL} 
+              alt="Zuviron Logo" 
+              className="w-8 h-8 rounded"
+            />
             <span className="text-2xl font-bold text-green-600">Zuviron</span>
           </Link>
 

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { LOGO_LIGHT_URL } from '../utils/constants';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +11,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">Zuviron Innovations</h3>
+            <div className="flex items-center space-x-2">
+              <img 
+                src={LOGO_LIGHT_URL} 
+                alt="Zuviron Logo" 
+                className="w-10 h-10 rounded"
+              />
+              <h3 className="text-xl font-bold">Zuviron Innovations</h3>
+            </div>
             <p className="text-gray-300">
               Transforming waste into sustainable building materials for a better tomorrow.
             </p>
@@ -48,8 +56,8 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2 text-gray-300">
               <li>Email: info@zuviron.com</li>
-              <li>Phone: +91 XXXXXXXXXX</li>
-              <li>Address: [Your Address]</li>
+              <li>Phone: +1 (555) 123-4567</li>
+              <li>Address: 123 Innovation Street, Tech City, TC 12345</li>
             </ul>
           </div>
 
