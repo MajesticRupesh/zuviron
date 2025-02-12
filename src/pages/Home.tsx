@@ -1,81 +1,55 @@
 import { Link } from 'react-router-dom';
-import { motion, Variants } from 'framer-motion';
-
-const fadeIn: Variants = {
-  initial: { 
-    opacity: 0, 
-    y: 20 
-  },
-  animate: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.6 }
-  }
-};
-
-const stagger: Variants = {
-  animate: {
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
+import { motion } from 'framer-motion';
+import ParallaxBackground from '../components/ui/ParallaxBackground';
+import AnimatedCard from '../components/ui/AnimatedCard';
+import FloatingElement from '../components/ui/FloatingElement';
+import GradientText from '../components/ui/GradientText';
+import BackgroundPattern from '../components/ui/BackgroundPattern';
 
 const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] bg-gray-900 text-white flex items-center">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
-            alt="Sustainable building" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-green-900/90 to-gray-900/90" />
-        </div>
-        <div className="relative container mx-auto px-4 py-24 md:py-32">
-          <motion.div
-            variants={stagger}
-            initial="initial"
-            animate="animate"
-            className="max-w-3xl"
-          >
-            <motion.h1 
-              variants={fadeIn}
-              className="text-4xl md:text-6xl font-bold mb-6"
+      <ParallaxBackground 
+        imageUrl="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+        className="min-h-[90vh] flex items-center"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl"
+        >
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+            Transforming Waste into{' '}
+            <GradientText gradient="from-green-300 via-green-400 to-green-500">
+              Sustainable Solutions
+            </GradientText>
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-200">
+            We convert thermocol waste into high-quality building materials, creating a circular economy for a sustainable future.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              to="/products"
+              className="btn btn-primary group relative overflow-hidden"
             >
-              Transforming Waste into Sustainable Building Solutions
-            </motion.h1>
-            <motion.p 
-              variants={fadeIn}
-              className="text-xl md:text-2xl mb-8 text-gray-200"
+              <span className="relative z-10">Explore Products</span>
+              <div className="absolute inset-0 bg-green-700 transform translate-y-full transition-transform group-hover:translate-y-0" />
+            </Link>
+            <Link
+              to="/contact"
+              className="btn btn-secondary text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm"
             >
-              We convert thermocol waste into high-quality building materials, creating a circular economy for a sustainable future.
-            </motion.p>
-            <motion.div 
-              variants={fadeIn}
-              className="flex flex-wrap gap-4"
-            >
-              <Link
-                to="/products"
-                className="btn btn-primary"
-              >
-                Explore Products
-              </Link>
-              <Link
-                to="/contact"
-                className="btn btn-secondary text-white bg-white/10 hover:bg-white/20"
-              >
-                Contact Us
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+              Contact Us
+            </Link>
+          </div>
+        </motion.div>
+      </ParallaxBackground>
 
       {/* Features Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gray-50 relative">
+        <BackgroundPattern />
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -84,9 +58,9 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center max-w-2xl mx-auto mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <GradientText className="text-3xl md:text-4xl font-bold mb-4">
               Why Choose Zuviron?
-            </h2>
+            </GradientText>
             <p className="text-gray-600 text-lg">
               Our innovative approach to waste management creates sustainable solutions for the construction industry.
             </p>
@@ -94,13 +68,10 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <motion.div
+              <AnimatedCard
                 key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="group bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:-translate-y-2"
+                delay={index * 0.2}
+                className="group"
               >
                 <div className="relative h-48 bg-gray-100">
                   <img 
@@ -111,48 +82,48 @@ const Home = () => {
                   <div className="absolute inset-0 bg-green-600/10 group-hover:bg-green-600/20 transition-colors duration-300" />
                 </div>
                 <div className="p-8">
-                  <div className="text-green-600 mb-4 text-4xl">{feature.icon}</div>
+                  <FloatingElement
+                    className="text-green-600 mb-4 text-4xl"
+                    delay={index * 0.2}
+                  >
+                    {feature.icon}
+                  </FloatingElement>
                   <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </div>
-              </motion.div>
+              </AnimatedCard>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-24 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1451976426598-a7593bd6d0b2?auto=format&fit=crop&q=80"
-            alt="Sustainable future" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-green-600/90" />
-        </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+      <ParallaxBackground 
+        imageUrl="https://images.unsplash.com/photo-1451976426598-a7593bd6d0b2?auto=format&fit=crop&q=80"
+        overlayColor="from-green-600/95 to-green-800/90"
+        className="py-24 text-white"
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Make a Sustainable Impact?
+          </h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Join us in our mission to create a cleaner, more sustainable future through innovative waste management solutions.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center px-8 py-4 rounded-lg text-green-600 bg-white font-semibold hover:bg-gray-100 hover:scale-105 transform transition-all duration-300"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Make a Sustainable Impact?
-            </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Join us in our mission to create a cleaner, more sustainable future through innovative waste management solutions.
-            </p>
-            <Link
-              to="/contact"
-              className="btn bg-white text-green-600 hover:bg-gray-100 hover:scale-105 transform transition-all duration-300"
-            >
-              Get Started Today
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+            Get Started Today
+          </Link>
+        </motion.div>
+      </ParallaxBackground>
     </div>
   );
 };

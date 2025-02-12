@@ -9,6 +9,7 @@ import CaseStudies from './pages/CaseStudies';
 import Sustainability from './pages/Sustainability';
 import Contact from './pages/Contact';
 import SplashScreen from './components/SplashScreen';
+import ScrollProgress from './components/ui/ScrollProgress';
 import { preloadImages } from './utils/imagePreloader';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
+        <ScrollProgress />
         <Navbar />
         <main className="flex-grow">
           <Routes>
