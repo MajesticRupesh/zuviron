@@ -15,6 +15,7 @@ const Products = () => {
     const fetchCategories = async () => {
       try {
         const data = await getProductCategories();
+        console.log('Products page - category data:', data);
         setCategories(data);
       } catch (err) {
         setError('Failed to load product categories. Please try again later.');
