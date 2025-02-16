@@ -9,6 +9,8 @@ import ProductDetails from './pages/ProductDetails';
 import CaseStudies from './pages/CaseStudies';
 import Sustainability from './pages/Sustainability';
 import Contact from './pages/Contact';
+import AdminLogin from './pages/Admin/Login';
+import AdminDashboard from './pages/Admin/Dashboard';
 import SplashScreen from './components/SplashScreen';
 import ScrollProgress from './components/ui/ScrollProgress';
 import { preloadImages } from './utils/imagePreloader';
@@ -42,19 +44,30 @@ function App() {
     <Router>
       <div className="flex flex-col min-h-screen">
         <ScrollProgress />
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/:slug" element={<ProductDetails />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-            <Route path="/sustainability" element={<Sustainability />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
+        <Routes>
+          {/* Admin Routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          
+          {/* Public Routes */}
+          <Route path="*" element={
+            <>
+              <Navbar />
+              <main className="flex-grow">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/products/:slug" element={<ProductDetails />} />
+                  <Route path="/case-studies" element={<CaseStudies />} />
+                  <Route path="/sustainability" element={<Sustainability />} />
+                  <Route path="/contact" element={<Contact />} />
+                </Routes>
+              </main>
+              <Footer />
+            </>
+          } />
+        </Routes>
       </div>
     </Router>
   );
