@@ -1,10 +1,32 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { FaLeaf, FaShieldAlt, FaTools, FaRecycle } from 'react-icons/fa';
 import GradientText from '../components/ui/GradientText';
 import BackgroundPattern from '../components/ui/BackgroundPattern';
+import { getProductCategories, ProductCategory } from '../services/productService';
 
 const Products = () => {
+  const [categories, setCategories] = useState<ProductCategory[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const data = await getProductCategories();
+        setCategories(data);
+      } catch (err) {
+        setError('Failed to load product categories. Please try again later.');
+        console.error('Error:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
     <div>
       {/* Hero Section */}
@@ -103,40 +125,59 @@ const Products = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {productCategories.map((category, index) => (
-              <motion.div
-                key={category.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+          {isLoading ? (
+            <div className="flex justify-center items-center min-h-[300px]">
+              <div className="w-16 h-16 relative">
+                <div className="absolute inset-0 border-4 border-green-200 rounded-full"></div>
+                <div className="absolute inset-0 border-4 border-green-600 rounded-full border-t-transparent animate-spin"></div>
+              </div>
+            </div>
+          ) : error ? (
+            <div className="text-center text-red-600 py-8">
+              <p>{error}</p>
+              <button 
+                onClick={() => window.location.reload()} 
+                className="mt-4 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
               >
-                <div className="aspect-w-16 aspect-h-9">
-                  <img 
-                    src={category.image} 
-                    alt={category.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{category.title}</h3>
-                  <p className="text-gray-200 mb-4">{category.description}</p>
-                  <Link
-                    to={`/products/${category.slug}`}
-                    className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors"
-                  >
-                    Learn More
-                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                Try Again
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {categories.map((category, index) => (
+                <motion.div
+                  key={category.$id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="aspect-w-16 aspect-h-9">
+                    <img 
+                      src={category.image} 
+                      alt={category.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-2xl font-bold text-white mb-2">{category.title}</h3>
+                    <p className="text-gray-200 mb-4">{category.description}</p>
+                    <Link
+                      to={`/products/${category.slug}`}
+                      className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors"
+                    >
+                      Learn More
+                      <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -208,27 +249,6 @@ const Products = () => {
     </div>
   );
 };
-
-const productCategories = [
-  {
-    title: 'Construction Panels',
-    description: 'High-performance panels made from recycled materials for walls and partitions.',
-    image: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89',
-    slug: 'construction-panels'
-  },
-  {
-    title: 'Insulation Materials',
-    description: 'Eco-friendly insulation solutions for superior thermal and acoustic performance.',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12',
-    slug: 'insulation-materials'
-  },
-  {
-    title: 'Decorative Elements',
-    description: 'Sustainable architectural elements that combine aesthetics with functionality.',
-    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122',
-    slug: 'decorative-elements'
-  }
-];
 
 const features = [
   {
