@@ -6,14 +6,7 @@ export interface ProductCategory extends Models.Document {
   description: string;
   image: string;
   slug: string;
-  details?: {
-    features?: string[];
-    specifications?: Record<string, string>;
-    applications?: string[];
-    environmentalImpact?: string[];
-    installation?: string[];
-    certifications?: string[];
-  };
+  details: string;
 }
 
 export const getProductCategories = async (): Promise<ProductCategory[]> => {
