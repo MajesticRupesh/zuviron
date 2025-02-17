@@ -12,7 +12,7 @@ const Home = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden">
       {/* Hero Section with 3D Perspective */}
       <div className="relative min-h-screen perspective-1000">
         <motion.div 
@@ -23,6 +23,7 @@ const Home = () => {
             imageUrl="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
             className="h-full"
           >
+            
             <div className="absolute inset-0 mix-blend-color-dodge opacity-30">
               <BackgroundPattern color="text-green-300" />
             </div>
@@ -95,14 +96,12 @@ const Home = () => {
                 </div>
               </motion.div>
             </div>
-
-            
           </ParallaxBackground>
         </motion.div>
       </div>
 
       {/* Features Section with Glassmorphism */}
-      <section className="py-32 md:py-40 relative bg-gradient-to-b from-gray-900 to-gray-900">
+      <section className="relative py-32 md:py-40 bg-gradient-to-b from-gray-900 to-gray-900 overflow-hidden">
         <div className="absolute inset-0 opacity-30">
           <BackgroundPattern color="text-green-200" />
         </div>
@@ -153,7 +152,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-white py-32 md:py-40">
+      <section className="relative bg-white py-32 md:py-40 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
