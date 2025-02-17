@@ -23,7 +23,6 @@ const Home = () => {
             imageUrl="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
             className="h-full"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50" />
             <div className="absolute inset-0 mix-blend-color-dodge opacity-30">
               <BackgroundPattern color="text-green-300" />
             </div>
@@ -97,25 +96,7 @@ const Home = () => {
               </motion.div>
             </div>
 
-            {/* Scroll Indicator */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2 }}
-              className="absolute bottom-8 left-1/2 -translate-x-1/2"
-            >
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2"
-              >
-                <motion.div
-                  animate={{ height: ['20%', '80%', '20%'] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="w-1 bg-white/50 rounded-full"
-                />
-              </motion.div>
-            </motion.div>
+            
           </ParallaxBackground>
         </motion.div>
       </div>
