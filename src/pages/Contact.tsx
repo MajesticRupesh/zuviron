@@ -65,7 +65,7 @@ const Contact = () => {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0">
-            <BackgroundPattern color="text-green-500/10" />
+            <BackgroundPattern color="text-brand-500/10" />
           </div>
         </div>
         
@@ -78,7 +78,7 @@ const Contact = () => {
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Get in{' '}
-              <GradientText gradient="from-green-300 via-green-400 to-green-200">
+              <GradientText gradient="from-brand-300 via-brand-400 to-brand-200">
                 Touch
               </GradientText>
             </h1>
@@ -103,8 +103,8 @@ const Contact = () => {
               <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
               <div className="space-y-8">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaMapMarkerAlt className="w-6 h-6 text-green-600" />
+                  <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FaMapMarkerAlt className="w-6 h-6 text-brand-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Our Location</h3>
@@ -116,8 +116,8 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaPhone className="w-6 h-6 text-green-600" />
+                  <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FaPhone className="w-6 h-6 text-brand-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Phone</h3>
@@ -126,8 +126,8 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaEnvelope className="w-6 h-6 text-green-600" />
+                  <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FaEnvelope className="w-6 h-6 text-brand-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Email</h3>
@@ -159,7 +159,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                   />
                 </div>
 
@@ -174,7 +174,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                   />
                 </div>
 
@@ -189,7 +189,7 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                   />
                 </div>
 
@@ -204,7 +204,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                   />
                 </div>
 
@@ -219,7 +219,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={4}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                   />
                 </div>
 
@@ -237,7 +237,7 @@ const Contact = () => {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="bg-green-50 text-green-600 px-4 py-3 rounded-lg text-sm"
+                    className="bg-brand-50 text-brand-600 px-4 py-3 rounded-lg text-sm"
                   >
                     Message sent successfully! We'll get back to you soon.
                   </motion.div>
@@ -249,7 +249,7 @@ const Contact = () => {
                   className={`w-full py-4 px-6 rounded-lg text-white font-semibold transition-all duration-200 
                     ${isLoading 
                       ? 'bg-gray-400 cursor-not-allowed' 
-                      : 'bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 transform hover:-translate-y-1'
+                      : 'bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-700 hover:to-brand-600 transform hover:-translate-y-1'
                     }`}
                 >
                   {isLoading ? (

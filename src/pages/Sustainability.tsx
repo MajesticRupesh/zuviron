@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useState } from 'react';
-import { FaLeaf, FaRecycle, FaSeedling, FaSolarPanel, FaWind, FaTree } from 'react-icons/fa';
+import { FaLeaf, FaRecycle, FaSeedling, FaSolarPanel, FaWind, FaTree, FaGlobeAmericas, FaLightbulb } from 'react-icons/fa';
 import GradientText from '../components/ui/GradientText';
 import BackgroundPattern from '../components/ui/BackgroundPattern';
 
@@ -36,7 +36,7 @@ const Counter = ({ end, duration = 2, suffix = '' }: CounterProps) => {
   }, [inView, end, duration]);
 
   return (
-    <span ref={ref} className="font-bold text-4xl md:text-5xl bg-gradient-to-r from-green-600 to-green-400 text-transparent bg-clip-text">
+    <span ref={ref} className="font-bold text-4xl md:text-5xl bg-gradient-to-r from-brand-600 to-brand-400 text-transparent bg-clip-text">
       {count}{suffix}
     </span>
   );
@@ -73,7 +73,7 @@ const Sustainability = () => {
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/90 to-gray-900/95" />
           <div className="absolute inset-0">
-            <BackgroundPattern color="text-green-500/10" />
+            <BackgroundPattern color="text-brand-500/10" />
           </div>
         </div>
 
@@ -88,13 +88,13 @@ const Sustainability = () => {
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-block mb-6 px-6 py-2 rounded-full bg-green-500/10 border border-green-500/20"
+              className="inline-block mb-6 px-6 py-2 rounded-full bg-brand-500/10 border border-brand-500/20"
             >
-              <span className="text-green-400">Environmental Impact</span>
+              <span className="text-brand-400">Environmental Impact</span>
             </motion.div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Building a{' '}
-              <GradientText gradient="from-green-300 via-green-400 to-green-200">
+              <GradientText gradient="from-brand-300 via-brand-400 to-brand-200">
                 Greener Tomorrow
               </GradientText>
             </h1>
@@ -117,7 +117,7 @@ const Sustainability = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Our Environmental{' '}
-              <GradientText gradient="from-green-600 to-green-400">
+              <GradientText gradient="from-brand-600 to-brand-400">
                 Impact
               </GradientText>
             </h2>
@@ -142,7 +142,7 @@ const Sustainability = () => {
                   </div>
                   <h3 className="text-xl font-semibold mb-2 text-gray-900">{stat.title}</h3>
                   <p className="text-gray-600">{stat.description}</p>
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 via-green-500/5 to-green-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-brand-500/0 via-brand-500/5 to-brand-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                 </div>
               </motion.div>
             ))}
@@ -166,7 +166,7 @@ const Sustainability = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Our Sustainable{' '}
-              <GradientText gradient="from-green-600 to-green-400">
+              <GradientText gradient="from-brand-600 to-brand-400">
                 Process
               </GradientText>
             </h2>
@@ -176,7 +176,7 @@ const Sustainability = () => {
           </motion.div>
 
           <div className="relative max-w-5xl mx-auto">
-            <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-green-200 via-green-400 to-green-200 -translate-y-1/2 hidden md:block" />
+            <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-brand-200 via-brand-400 to-brand-200 -translate-y-1/2 hidden md:block" />
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {process.map((step, index) => (
                 <motion.div
@@ -188,13 +188,13 @@ const Sustainability = () => {
                   className="relative"
                 >
                   <div className="bg-white p-6 rounded-xl shadow-lg relative z-10">
-                    <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-brand-100 to-brand-50 rounded-xl flex items-center justify-center mx-auto mb-4">
                       {step.icon}
                     </div>
                     <h3 className="text-lg font-semibold mb-2 text-center">{step.title}</h3>
                     <p className="text-gray-600 text-center">{step.description}</p>
                   </div>
-                  <div className="hidden md:block absolute top-1/2 left-1/2 w-6 h-6 bg-green-500 rounded-full -translate-x-1/2 -translate-y-1/2 shadow-lg z-20" />
+                  <div className="hidden md:block absolute top-1/2 left-1/2 w-6 h-6 bg-brand-500 rounded-full -translate-x-1/2 -translate-y-1/2 shadow-lg z-20" />
                 </motion.div>
               ))}
             </div>
@@ -205,7 +205,7 @@ const Sustainability = () => {
       {/* Initiatives Section */}
       <section className="py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 mix-blend-multiply opacity-20">
-          <BackgroundPattern color="text-green-500" />
+          <BackgroundPattern color="text-brand-500" />
         </div>
         
         <div className="container mx-auto px-4 relative">
@@ -218,7 +218,7 @@ const Sustainability = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Our Green{' '}
-              <GradientText gradient="from-green-300 via-green-400 to-green-200">
+              <GradientText gradient="from-brand-300 via-brand-400 to-brand-200">
                 Initiatives
               </GradientText>
             </h2>
@@ -238,7 +238,7 @@ const Sustainability = () => {
                 className="group"
               >
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-colors duration-300">
-                  <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-brand-500/10 rounded-lg flex items-center justify-center mb-4">
                     {initiative.icon}
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{initiative.title}</h3>
@@ -246,7 +246,7 @@ const Sustainability = () => {
                   <ul className="mt-4 space-y-2">
                     {initiative.points.map((point, i) => (
                       <li key={i} className="flex items-center gap-2 text-gray-300">
-                        <span className="w-1.5 h-1.5 bg-green-400 rounded-full" />
+                        <span className="w-1.5 h-1.5 bg-brand-400 rounded-full" />
                         {point}
                       </li>
                     ))}
@@ -290,22 +290,22 @@ const impactStats = [
 
 const process = [
   {
-    icon: <FaRecycle className="w-8 h-8 text-green-600" />,
+    icon: <FaRecycle className="w-8 h-8 text-brand-600" />,
     title: 'Collection',
     description: 'Gathering thermocol waste from various sources'
   },
   {
-    icon: <FaLeaf className="w-8 h-8 text-green-600" />,
+    icon: <FaLeaf className="w-8 h-8 text-brand-600" />,
     title: 'Processing',
     description: 'Sorting and cleaning the collected materials'
   },
   {
-    icon: <FaSeedling className="w-8 h-8 text-green-600" />,
+    icon: <FaSeedling className="w-8 h-8 text-brand-600" />,
     title: 'Innovation',
     description: 'Converting waste into building materials'
   },
   {
-    icon: <FaTree className="w-8 h-8 text-green-600" />,
+    icon: <FaTree className="w-8 h-8 text-brand-600" />,
     title: 'Implementation',
     description: 'Using materials in sustainable construction'
   }
@@ -313,7 +313,7 @@ const process = [
 
 const initiatives = [
   {
-    icon: <FaRecycle className="w-6 h-6 text-green-400" />,
+    icon: <FaRecycle className="w-6 h-6 text-brand-400" />,
     title: 'Waste Management',
     description: 'Comprehensive recycling and waste reduction programs',
     points: [
@@ -323,7 +323,7 @@ const initiatives = [
     ]
   },
   {
-    icon: <FaSolarPanel className="w-6 h-6 text-green-400" />,
+    icon: <FaSolarPanel className="w-6 h-6 text-brand-400" />,
     title: 'Renewable Energy',
     description: 'Commitment to clean energy in our operations',
     points: [
@@ -333,7 +333,7 @@ const initiatives = [
     ]
   },
   {
-    icon: <FaWind className="w-6 h-6 text-green-400" />,
+    icon: <FaWind className="w-6 h-6 text-brand-400" />,
     title: 'Carbon Reduction',
     description: 'Active measures to minimize carbon footprint',
     points: [

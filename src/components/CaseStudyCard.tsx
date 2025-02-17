@@ -38,7 +38,7 @@ const CaseStudyCard = ({ caseStudy, index }: CaseStudyCardProps) => {
                 day: 'numeric'
               })}
             </span>
-            <span className="text-green-600 font-medium group-hover:text-green-700 transition-colors">
+            <span className="text-brand-600 font-medium group-hover:text-brand-700 transition-colors">
               Read More →
             </span>
           </div>

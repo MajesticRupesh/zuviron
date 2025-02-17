@@ -27,7 +27,7 @@ const About = () => {
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/90 to-gray-900/95" />
           <div className="absolute inset-0">
-            <BackgroundPattern color="text-green-500/10" />
+            <BackgroundPattern color="text-brand-500/10" />
           </div>
         </div>
 
@@ -42,13 +42,13 @@ const About = () => {
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-block mb-6 px-6 py-2 rounded-full bg-green-500/10 border border-green-500/20"
+              className="inline-block mb-6 px-6 py-2 rounded-full bg-brand-500/10 border border-brand-500/20"
             >
-              <span className="text-green-400">Our Story</span>
+              <span className="text-brand-400">Our Story</span>
             </motion.div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Building a{' '}
-              <GradientText gradient="from-green-300 via-green-400 to-green-200">
+              <GradientText gradient="from-brand-300 via-brand-400 to-brand-200">
                 Sustainable Future
               </GradientText>
             </h1>
@@ -59,7 +59,7 @@ const About = () => {
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-green-500/20 to-transparent" />
+        <div className="absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" />
       </section>
 
       {/* Mission Section */}
@@ -84,8 +84,8 @@ const About = () => {
               <div className="absolute -bottom-8 left-8 right-8">
                 <div className="bg-white rounded-xl p-6 shadow-xl">
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                      <FaLeaf className="w-5 h-5 text-green-600" />
+                    <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
+                      <FaLeaf className="w-5 h-5 text-brand-600" />
                     </div>
                     <h3 className="text-xl font-semibold">Environmental Impact</h3>
                   </div>
@@ -118,8 +118,8 @@ const About = () => {
                     viewport={{ once: true }}
                     className="flex gap-4 items-start"
                   >
-                    <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      {point.icon}
+                    <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <FaLightbulb className="w-4 h-4 text-brand-600" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold mb-2">{point.title}</h3>
@@ -167,8 +167,8 @@ const About = () => {
                 className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative w-16 h-16 mb-6">
-                  <div className="absolute inset-0 bg-green-100 rounded-xl transform transition-transform duration-300 group-hover:rotate-6" />
-                  <div className="absolute inset-0 bg-green-50 rounded-xl transform transition-transform duration-300 group-hover:-rotate-6" />
+                  <div className="absolute inset-0 bg-brand-100 rounded-xl transform transition-transform duration-300 group-hover:rotate-6" />
+                  <div className="absolute inset-0 bg-brand-50 rounded-xl transform transition-transform duration-300 group-hover:-rotate-6" />
                   <div className="relative h-full flex items-center justify-center">
                     <img 
                       src={value.image}
@@ -188,7 +188,7 @@ const About = () => {
       {/* Vision Section */}
       <section className="relative py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white overflow-hidden">
         <div className="absolute inset-0 mix-blend-multiply opacity-20">
-          <BackgroundPattern color="text-green-500" />
+          <BackgroundPattern color="text-brand-500" />
         </div>
         
         <div className="container mx-auto px-4 relative">
@@ -201,7 +201,7 @@ const About = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-8">
               Our Vision for the{' '}
-              <GradientText gradient="from-green-300 via-green-400 to-green-200">
+              <GradientText gradient="from-brand-300 via-brand-400 to-brand-200">
                 Future
               </GradientText>
             </h2>
@@ -218,8 +218,8 @@ const About = () => {
                   viewport={{ once: true }}
                   className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
                 >
-                  <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                    {point.icon}
+                  <div className="w-12 h-12 bg-brand-500/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                    <FaRecycle className="w-6 h-6 text-brand-400" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{point.title}</h3>
                   <p className="text-gray-400">{point.description}</p>
@@ -237,17 +237,17 @@ const missionPoints = [
   {
     title: 'Sustainable Innovation',
     description: 'Developing cutting-edge solutions for waste management and recycling.',
-    icon: <FaLightbulb className="w-4 h-4 text-green-600" />
+    icon: <FaLightbulb className="w-4 h-4 text-brand-600" />
   },
   {
     title: 'Global Impact',
     description: 'Creating positive environmental change on a global scale.',
-    icon: <FaGlobeAmericas className="w-4 h-4 text-green-600" />
+    icon: <FaGlobeAmericas className="w-4 h-4 text-brand-600" />
   },
   {
     title: 'Community Focus',
     description: 'Building strong relationships with communities and stakeholders.',
-    icon: <FaUsers className="w-4 h-4 text-green-600" />
+    icon: <FaUsers className="w-4 h-4 text-brand-600" />
   }
 ];
 
@@ -273,17 +273,17 @@ const visionPoints = [
   {
     title: 'Zero Waste Future',
     description: 'Creating a world where all waste is transformed into valuable resources.',
-    icon: <FaRecycle className="w-6 h-6 text-green-400" />
+    icon: <FaRecycle className="w-6 h-6 text-brand-400" />
   },
   {
     title: 'Global Sustainability',
     description: 'Promoting sustainable practices across industries worldwide.',
-    icon: <FaGlobeAmericas className="w-6 h-6 text-green-400" />
+    icon: <FaGlobeAmericas className="w-6 h-6 text-brand-400" />
   },
   {
     title: 'Innovation Leadership',
     description: 'Setting new standards in sustainable construction technology.',
-    icon: <FaLightbulb className="w-6 h-6 text-green-400" />
+    icon: <FaLightbulb className="w-6 h-6 text-brand-400" />
   }
 ];
 

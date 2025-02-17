@@ -16,7 +16,7 @@ const SplashScreen = () => {
             alt="Zuviron Logo" 
             className="w-24 h-24 mb-4 rounded"
           />
-          <span className="text-4xl md:text-6xl font-bold text-green-600">Zuviron</span>
+          <span className="text-4xl md:text-6xl font-bold text-brand-600">Zuviron</span>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -25,8 +25,8 @@ const SplashScreen = () => {
           className="flex flex-col items-center"
         >
           <div className="w-16 h-16 mb-4 relative">
-            <div className="absolute inset-0 border-4 border-green-200 rounded-full"></div>
-            <div className="absolute inset-0 border-4 border-green-600 rounded-full border-t-transparent animate-spin"></div>
+            <div className="absolute inset-0 border-4 border-brand-200 rounded-full"></div>
+            <div className="absolute inset-0 border-4 border-brand-600 rounded-full border-t-transparent animate-spin"></div>
           </div>
           <p className="text-gray-400">Loading amazing things...</p>
         </motion.div>

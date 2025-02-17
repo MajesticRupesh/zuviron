@@ -25,7 +25,7 @@ const Home = () => {
           >
             
             <div className="absolute inset-0 mix-blend-color-dodge opacity-30">
-              <BackgroundPattern color="text-green-300" />
+              <BackgroundPattern color="text-brand-300" />
             </div>
             
             <div className="relative w-full h-full flex items-center justify-center">
@@ -43,12 +43,12 @@ const Home = () => {
                     className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white"
                   >
                     Transform
-                    <GradientText gradient="from-green-300 via-green-400 to-green-500" className="mx-2 md:mx-4">
+                    <GradientText gradient="from-brand-300 via-brand-400 to-brand-500" className="mx-2 md:mx-4">
                       Waste
                     </GradientText>
                     into
                     <br className="hidden sm:block" />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-200 via-green-300 to-green-100">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-200 via-brand-300 to-brand-100">
                       Future
                     </span>
                   </motion.h1>
@@ -70,11 +70,11 @@ const Home = () => {
                   >
                     <Link
                       to="/products"
-                      className="group relative overflow-hidden rounded-full px-6 sm:px-8 py-3 sm:py-4 bg-green-500 text-white hover:bg-green-600 transition-all duration-300"
+                      className="group relative overflow-hidden rounded-full px-6 sm:px-8 py-3 sm:py-4 bg-brand-500 text-white hover:bg-brand-600 transition-all duration-300"
                     >
                       <span className="relative z-10 font-medium">Explore Products</span>
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-green-600 to-green-400"
+                        className="absolute inset-0 bg-gradient-to-r from-brand-600 to-brand-400"
                         initial={{ x: '100%' }}
                         whileHover={{ x: 0 }}
                         transition={{ duration: 0.3 }}
@@ -82,7 +82,7 @@ const Home = () => {
                     </Link>
                     <Link
                       to="/contact"
-                      className="group relative overflow-hidden rounded-full px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white hover:border-green-400 transition-all duration-300"
+                      className="group relative overflow-hidden rounded-full px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white hover:border-brand-400 transition-all duration-300"
                     >
                       <span className="relative z-10">Contact Us</span>
                       <motion.div
@@ -103,7 +103,7 @@ const Home = () => {
       {/* Features Section with Glassmorphism */}
       <section className="relative py-32 md:py-40 bg-gradient-to-b from-gray-900 to-gray-900 overflow-hidden">
         <div className="absolute inset-0 opacity-30">
-          <BackgroundPattern color="text-green-200" />
+          <BackgroundPattern color="text-brand-200" />
         </div>
         
         <div className="container mx-auto px-4 relative">
@@ -115,7 +115,7 @@ const Home = () => {
             className="text-center max-w-2xl mx-auto mb-20"
           >
             <GradientText 
-              gradient="from-green-200 via-green-300 to-green-100" 
+              gradient="from-brand-200 via-brand-300 to-brand-100" 
               className="text-4xl md:text-5xl font-bold mb-8"
             >
               Why Choose Zuviron?
@@ -130,21 +130,21 @@ const Home = () => {
               <AnimatedCard
                 key={feature.title}
                 delay={index * 0.2}
-                className="group backdrop-blur-lg bg-white/10 border border-white/20 hover:border-green-400/30 transition-colors duration-300"
+                className="group backdrop-blur-lg bg-white/10 border border-white/20 hover:border-brand-400/30 transition-colors duration-300"
               >
                 <div className="p-8 md:p-10">
                   <FloatingElement
-                    className="text-6xl mb-8 text-green-300"
+                    className="text-6xl mb-8 text-brand-300"
                     delay={index * 0.2}
                   >
                     {feature.icon}
                   </FloatingElement>
-                  <h3 className="text-2xl font-semibold mb-4 text-white group-hover:text-green-300 transition-colors">
+                  <h3 className="text-2xl font-semibold mb-4 text-white group-hover:text-brand-300 transition-colors">
                     {feature.title}
                   </h3>
                   <p className="text-gray-300 text-lg">{feature.description}</p>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 via-green-500/5 to-green-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-500/0 via-brand-500/5 to-brand-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </AnimatedCard>
             ))}
           </div>
@@ -162,7 +162,7 @@ const Home = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900">
             Ready to Make a{' '}
-            <GradientText gradient="from-green-600 via-green-500 to-green-700" className="inline-block">
+            <GradientText gradient="from-brand-600 via-brand-500 to-brand-700" className="inline-block">
               Sustainable Impact?
             </GradientText>
           </h2>
@@ -171,7 +171,7 @@ const Home = () => {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center px-12 py-5 rounded-full text-white bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-green-500/25"
+            className="inline-flex items-center px-12 py-5 rounded-full text-white bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-700 hover:to-brand-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-brand-500/25"
           >
             Get Started Today
           </Link>

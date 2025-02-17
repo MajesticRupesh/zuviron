@@ -9,7 +9,7 @@ interface GradientTextProps {
 const GradientText = ({ 
   children, 
   className = '',
-  gradient = 'from-green-400 via-green-600 to-green-800'
+  gradient = 'from-brand-400 via-brand-600 to-brand-800'
 }: GradientTextProps) => {
   return (
     <span className={`bg-gradient-to-r ${gradient} text-transparent bg-clip-text ${className}`}>

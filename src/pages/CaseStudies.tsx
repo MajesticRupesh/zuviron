@@ -67,8 +67,8 @@ const CaseStudies = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="w-16 h-16 relative">
-          <div className="absolute inset-0 border-4 border-green-200 rounded-full"></div>
-          <div className="absolute inset-0 border-4 border-green-600 rounded-full border-t-transparent animate-spin"></div>
+          <div className="absolute inset-0 border-4 border-brand-200 rounded-full"></div>
+          <div className="absolute inset-0 border-4 border-brand-600 rounded-full border-t-transparent animate-spin"></div>
         </div>
       </div>
     );
@@ -81,7 +81,7 @@ const CaseStudies = () => {
           <p className="text-red-600 mb-4">{error}</p>
           <button
             onClick={handleBack}
-            className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+            className="inline-flex items-center px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors"
           >
             <FaArrowLeft className="mr-2" /> Back to Case Studies
           </button>
@@ -103,7 +103,7 @@ const CaseStudies = () => {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0">
-              <BackgroundPattern color="text-green-500/10" />
+              <BackgroundPattern color="text-brand-500/10" />
             </div>
           </div>
           
@@ -116,7 +116,7 @@ const CaseStudies = () => {
             >
               <button
                 onClick={handleBack}
-                className="flex items-center text-green-400 hover:text-green-300 transition-colors mb-8"
+                className="flex items-center text-brand-400 hover:text-brand-300 transition-colors mb-8"
               >
                 <FaArrowLeft className="mr-2" /> Back to Case Studies
               </button>
@@ -172,7 +172,7 @@ const CaseStudies = () => {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0">
-            <BackgroundPattern color="text-green-500/10" />
+            <BackgroundPattern color="text-brand-500/10" />
           </div>
         </div>
         
@@ -185,7 +185,7 @@ const CaseStudies = () => {
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Our Success{' '}
-              <GradientText gradient="from-green-300 via-green-400 to-green-200">
+              <GradientText gradient="from-brand-300 via-brand-400 to-brand-200">
                 Stories
               </GradientText>
             </h1>

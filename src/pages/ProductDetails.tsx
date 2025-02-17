@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { FaArrowLeft } from 'react-icons/fa';
+import { FaArrowLeft, FaLeaf, FaRecycle, FaCheck } from 'react-icons/fa';
 import { ProductCategory, getProductBySlug } from '../services/productService';
 import { databases, DATABASE_ID, COLLECTIONS } from '../config/appwrite';
 import GradientText from '../components/ui/GradientText';
@@ -103,7 +103,7 @@ const ProductDetails = () => {
             }} />
           </div>
           <div className="absolute inset-0 z-20 mix-blend-multiply opacity-40">
-            <BackgroundPattern color="text-green-500/10" />
+            <BackgroundPattern color="text-brand-500/10" />
           </div>
         </div>
         
@@ -121,7 +121,7 @@ const ProductDetails = () => {
               <FaArrowLeft /> Back to Products
             </button>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <GradientText gradient="from-green-300 via-green-400 to-green-200">
+              <GradientText gradient="from-brand-300 via-brand-400 to-brand-200">
                 {product.title}
               </GradientText>
             </h1>
@@ -143,7 +143,9 @@ const ProductDetails = () => {
             className="prose prose-lg max-w-4xl mx-auto"
           >
             <div className="bg-gray-50 rounded-2xl p-8 md:p-12 shadow-lg">
-              <h2 className="text-3xl font-bold mb-6 text-gray-900">Product Details</h2>
+              <h2 className="text-3xl font-bold mb-6 text-gray-900">
+                <span className="text-brand-400">Product Details</span>
+              </h2>
               <div className="text-gray-600 space-y-6 whitespace-pre-wrap">
                 {product.details}
               </div>
@@ -158,7 +160,7 @@ const ProductDetails = () => {
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl overflow-hidden">
             <div className="relative px-6 py-24 md:px-12 text-center">
               <div className="absolute inset-0 mix-blend-multiply opacity-20">
-                <BackgroundPattern color="text-green-500" />
+                <BackgroundPattern color="text-brand-500" />
               </div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -175,7 +177,7 @@ const ProductDetails = () => {
                 </p>
                 <button
                   onClick={() => navigate('/contact')}
-                  className="inline-flex items-center px-8 py-4 bg-green-600 hover:bg-green-700 rounded-full text-white transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center px-8 py-4 bg-brand-600 hover:bg-brand-700 rounded-full text-white transition-all duration-300 transform hover:scale-105"
                 >
                   Get in Touch
                 </button>

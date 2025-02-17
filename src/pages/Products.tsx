@@ -60,11 +60,11 @@ const Products = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-900/80 to-gray-900/90" />
           <div className="absolute inset-0">
             <div className="h-full w-full" style={{ 
-              background: `radial-gradient(circle at 50% 50%, rgba(34,197,94,0.1) 0%, rgba(0,0,0,0) 50%)` 
+              background: `radial-gradient(circle at 50% 50%, rgba(8,145,178,0.1) 0%, rgba(0,0,0,0) 50%)` 
             }} />
           </div>
           <div className="absolute inset-0 mix-blend-multiply">
-            <BackgroundPattern color="text-green-500/10" />
+            <BackgroundPattern color="text-brand-500" />
           </div>
         </div>
         
@@ -79,13 +79,13 @@ const Products = () => {
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-block mb-6 px-6 py-2 rounded-full bg-green-500/10 border border-green-500/20"
+              className="inline-block mb-6 px-6 py-2 rounded-full bg-brand-500/10 border border-brand-500/20"
             >
-              <span className="text-green-400">Sustainable Building Materials</span>
+              <span className="text-brand-400">Sustainable Building Materials</span>
             </motion.div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Innovative Solutions for{' '}
-              <GradientText gradient="from-green-300 via-green-400 to-green-200">
+              <GradientText gradient="from-brand-300 via-brand-400 to-brand-200">
                 Sustainable Construction
               </GradientText>
             </h1>
@@ -95,7 +95,7 @@ const Products = () => {
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 to="/contact"
-                className="px-8 py-4 bg-green-600 hover:bg-green-700 rounded-full text-white transition-all duration-300 transform hover:scale-105"
+                className="px-8 py-4 bg-brand-600 hover:bg-brand-700 rounded-full text-white transition-all duration-300 transform hover:scale-105"
               >
                 Request a Quote
               </Link>
@@ -110,8 +110,8 @@ const Products = () => {
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-green-500/20 to-transparent" />
-        <div className="absolute left-1/2 bottom-0 w-px h-24 bg-gradient-to-t from-green-500/20 to-transparent transform -translate-x-1/2" />
+        <div className="absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" />
+        <div className="absolute left-1/2 bottom-0 w-px h-24 bg-gradient-to-t from-brand-500/20 to-transparent transform -translate-x-1/2" />
       </section>
 
       {/* Product Categories */}
@@ -129,8 +129,8 @@ const Products = () => {
           {isLoading ? (
             <div className="flex justify-center items-center min-h-[300px]">
               <div className="w-16 h-16 relative">
-                <div className="absolute inset-0 border-4 border-green-200 rounded-full"></div>
-                <div className="absolute inset-0 border-4 border-green-600 rounded-full border-t-transparent animate-spin"></div>
+                <div className="absolute inset-0 border-4 border-brand-200 rounded-full"></div>
+                <div className="absolute inset-0 border-4 border-brand-600 rounded-full border-t-transparent animate-spin"></div>
               </div>
             </div>
           ) : error ? (
@@ -138,7 +138,7 @@ const Products = () => {
               <p>{error}</p>
               <button 
                 onClick={() => window.location.reload()} 
-                className="mt-4 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                className="mt-4 px-6 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors"
               >
                 Try Again
               </button>
@@ -167,7 +167,7 @@ const Products = () => {
                     <p className="text-gray-200 mb-4">{category.description}</p>
                     <Link
                       to={`/products/${category.slug}`}
-                      className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors"
+                      className="inline-flex items-center text-brand-400 hover:text-brand-300 transition-colors"
                     >
                       Learn More
                       <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -204,7 +204,7 @@ const Products = () => {
                 viewport={{ once: true }}
                 className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-6">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
@@ -221,7 +221,7 @@ const Products = () => {
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl overflow-hidden">
             <div className="relative px-6 py-24 md:px-12 text-center">
               <div className="absolute inset-0 mix-blend-multiply opacity-20">
-                <BackgroundPattern color="text-green-500" />
+                <BackgroundPattern color="text-brand-500" />
               </div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -238,7 +238,7 @@ const Products = () => {
                 </p>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center px-8 py-4 bg-green-600 hover:bg-green-700 rounded-full text-white transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center px-8 py-4 bg-brand-600 hover:bg-brand-700 rounded-full text-white transition-all duration-300 transform hover:scale-105"
                 >
                   Get Started Today
                 </Link>
@@ -255,22 +255,22 @@ const features = [
   {
     title: 'Eco-Friendly',
     description: 'Made from 100% recycled materials, reducing environmental impact.',
-    icon: <FaLeaf className="w-6 h-6 text-green-600" />
+    icon: <FaLeaf className="w-6 h-6 text-brand-600" />
   },
   {
     title: 'Durable',
     description: 'Engineered for long-lasting performance and reliability.',
-    icon: <FaShieldAlt className="w-6 h-6 text-green-600" />
+    icon: <FaShieldAlt className="w-6 h-6 text-brand-600" />
   },
   {
     title: 'Versatile',
     description: 'Adaptable for various construction applications.',
-    icon: <FaTools className="w-6 h-6 text-green-600" />
+    icon: <FaTools className="w-6 h-6 text-brand-600" />
   },
   {
     title: 'Sustainable',
     description: 'Promotes circular economy and waste reduction.',
-    icon: <FaRecycle className="w-6 h-6 text-green-600" />
+    icon: <FaRecycle className="w-6 h-6 text-brand-600" />
   }
 ];
 

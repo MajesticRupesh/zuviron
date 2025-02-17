@@ -26,7 +26,7 @@ const Navbar = () => {
               alt="Zuviron Logo" 
               className="w-8 h-8 rounded"
             />
-            <span className="text-2xl font-bold text-green-600">Zuviron</span>
+            <span className="text-2xl font-bold text-brand-600">Zuviron</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -35,7 +35,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-gray-600 hover:text-green-600 transition-colors duration-200"
+                className="text-gray-600 hover:text-brand-600 transition-colors duration-200"
               >
                 {link.name}
               </Link>
@@ -46,7 +46,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-green-600 focus:outline-none"
+              className="text-gray-600 hover:text-brand-600 focus:outline-none"
             >
               {isOpen ? (
                 <HiX className="h-6 w-6" />
@@ -65,7 +65,7 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="block px-3 py-2 text-gray-600 hover:text-green-600 hover:bg-gray-50 rounded-md"
+                  className="block px-3 py-2 text-gray-600 hover:text-brand-600 hover:bg-gray-50 rounded-md"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
