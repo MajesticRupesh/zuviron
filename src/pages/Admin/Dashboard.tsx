@@ -1,30 +1,37 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaPlus, FaEdit, FaTrash, FaSignOutAlt, FaInbox, FaBoxes } from 'react-icons/fa';
+import { FaPlus, FaEdit, FaTrash, FaSignOutAlt, FaInbox, FaBoxes, FaBook } from 'react-icons/fa';
 import { account } from '../../config/appwrite';
 import { ProductCategory, getProductCategories, deleteProductCategory } from '../../services/productService';
 import { ContactMessage, getContactMessages, deleteContactMessage } from '../../services/contactService';
+import { CaseStudy, getCaseStudies, deleteCaseStudy } from '../../services/caseStudyService';
 import ProductCategoryModal from './ProductCategoryModal';
+import CaseStudyModal from './CaseStudyModal';
 
-type TabType = 'products' | 'messages';
+type TabType = 'products' | 'messages' | 'case-studies';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<TabType>('products');
   const [categories, setCategories] = useState<ProductCategory[]>([]);
   const [messages, setMessages] = useState<ContactMessage[]>([]);
+  const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory | null>(null);
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
+  const [isCaseStudyModalOpen, setIsCaseStudyModalOpen] = useState(false);
 
   useEffect(() => {
     checkAuth();
     if (activeTab === 'products') {
       fetchCategories();
-    } else {
+    } else if (activeTab === 'messages') {
       fetchMessages();
+    } else if (activeTab === 'case-studies') {
+      fetchCaseStudies();
     }
   }, [activeTab]);
 
@@ -58,6 +65,20 @@ const AdminDashboard = () => {
       setMessages(data);
     } catch (err) {
       setError('Failed to load messages');
+      console.error('Error:', err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const fetchCaseStudies = async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const data = await getCaseStudies();
+      setCaseStudies(data);
+    } catch (err) {
+      setError('Failed to load case studies');
       console.error('Error:', err);
     } finally {
       setIsLoading(false);
@@ -113,6 +134,34 @@ const AdminDashboard = () => {
     fetchCategories();
   };
 
+  const handleAddNewCaseStudy = () => {
+    setSelectedCaseStudy(null);
+    setIsCaseStudyModalOpen(true);
+  };
+
+  const handleEditCaseStudy = (caseStudy: CaseStudy) => {
+    setSelectedCaseStudy(caseStudy);
+    setIsCaseStudyModalOpen(true);
+  };
+
+  const handleDeleteCaseStudy = async (caseStudy: CaseStudy) => {
+    if (window.confirm('Are you sure you want to delete this case study?')) {
+      try {
+        await deleteCaseStudy(caseStudy.$id);
+        await fetchCaseStudies();
+      } catch (err) {
+        console.error('Delete error:', err);
+        setError('Failed to delete case study');
+      }
+    }
+  };
+
+  const handleCaseStudyModalClose = () => {
+    setIsCaseStudyModalOpen(false);
+    setSelectedCaseStudy(null);
+    fetchCaseStudies();
+  };
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -160,6 +209,17 @@ const AdminDashboard = () => {
                 Products
               </button>
               <button
+                onClick={() => setActiveTab('case-studies')}
+                className={`${
+                  activeTab === 'case-studies'
+                    ? 'border-green-500 text-green-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                } whitespace-nowrap py-4 px-1 border-b-2 font-medium flex items-center`}
+              >
+                <FaBook className="mr-2" />
+                Case Studies
+              </button>
+              <button
                 onClick={() => setActiveTab('messages')}
                 className={`${
                   activeTab === 'messages'
@@ -173,7 +233,103 @@ const AdminDashboard = () => {
             </nav>
           </div>
 
-          {activeTab === 'products' ? (
+          {activeTab === 'case-studies' ? (
+            <>
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-900">Case Studies</h2>
+                <button
+                  onClick={handleAddNewCaseStudy}
+                  className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                >
+                  <FaPlus className="mr-2" />
+                  Add New Case Study
+                </button>
+              </div>
+
+              {error ? (
+                <div className="bg-red-50 text-red-600 px-4 py-3 rounded-lg">
+                  {error}
+                </div>
+              ) : (
+                <div className="bg-white rounded-lg shadow overflow-hidden">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Image
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Title
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Description
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Published At
+                        </th>
+                        <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Actions
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {caseStudies.map((caseStudy) => (
+                        <motion.tr
+                          key={caseStudy.$id}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <img
+                              src={caseStudy.image}
+                              alt={caseStudy.title}
+                              className="h-10 w-10 rounded-lg object-cover"
+                            />
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="text-sm font-medium text-gray-900">
+                              {caseStudy.title}
+                            </div>
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="text-sm text-gray-500 truncate max-w-xs">
+                              {caseStudy.description}
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="text-sm text-gray-500">
+                              {new Date(caseStudy.publishedAt).toLocaleDateString()}
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <button
+                              onClick={() => handleEditCaseStudy(caseStudy)}
+                              className="text-green-600 hover:text-green-900 mr-4"
+                            >
+                              <FaEdit className="inline-block" />
+                            </button>
+                            <button
+                              onClick={() => handleDeleteCaseStudy(caseStudy)}
+                              className="text-red-600 hover:text-red-900"
+                            >
+                              <FaTrash className="inline-block" />
+                            </button>
+                          </td>
+                        </motion.tr>
+                      ))}
+                    </tbody>
+                  </table>
+
+                  {caseStudies.length === 0 && (
+                    <div className="text-center py-12">
+                      <p className="text-gray-500">No case studies available.</p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </>
+          ) : activeTab === 'products' ? (
             <>
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-2xl font-bold text-gray-900">Product Categories</h2>
@@ -324,6 +480,13 @@ const AdminDashboard = () => {
         <ProductCategoryModal
           category={selectedCategory}
           onClose={handleModalClose}
+        />
+      )}
+
+      {isCaseStudyModalOpen && (
+        <CaseStudyModal
+          caseStudy={selectedCaseStudy}
+          onClose={handleCaseStudyModalClose}
         />
       )}
     </div>

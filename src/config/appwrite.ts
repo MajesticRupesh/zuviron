@@ -11,7 +11,8 @@ export const storage = new Storage(client);
 // Collection IDs
 export const COLLECTIONS = {
     PRODUCT_CATEGORIES: '67b24c54000d74d6b2b1',
-    CONTACT_MESSAGES: '67b268d1002b5cea5572' // Replace with your actual collection ID
+    CONTACT_MESSAGES: '67b268d1002b5cea5572',
+    CASE_STUDIES: '67b354e5003c7f84e565' // Replace with your actual collection ID
 };
 
 // Database ID
