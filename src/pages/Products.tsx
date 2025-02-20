@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { FaLeaf, FaShieldAlt, FaTools, FaRecycle } from 'react-icons/fa';
+import { FaLeaf, FaShieldAlt, FaTools, FaRecycle, FaTimes } from 'react-icons/fa';
 import GradientText from '../components/ui/GradientText';
 import BackgroundPattern from '../components/ui/BackgroundPattern';
 import { getProductCategories, ProductCategory } from '../services/productService';
@@ -10,6 +10,7 @@ const Products = () => {
   const [categories, setCategories] = useState<ProductCategory[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -27,6 +28,16 @@ const Products = () => {
 
     fetchCategories();
   }, []);
+
+  const handleCardClick = (e: React.MouseEvent, categoryId: string) => {
+    e.preventDefault(); // Prevent navigation
+    setExpandedCard(expandedCard === categoryId ? null : categoryId);
+  };
+
+  const handleLearnMoreClick = (e: React.MouseEvent, slug: string) => {
+    e.stopPropagation(); // Prevent card click handler
+    window.location.href = `/products/${slug}`;
+  };
 
   return (
     <div>
@@ -148,11 +159,9 @@ const Products = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={(e) => handleCardClick(e, category.$id)}
                 >
-                  <Link
-                    to={`/products/${category.slug}`}
-                    className="block h-full focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded-2xl"
-                  >
+                  <div className="block h-full focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded-2xl cursor-pointer">
                     <div className="relative w-full pb-[120%]">
                       <img 
                         src={category.image} 
@@ -162,18 +171,43 @@ const Products = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
                       <div className="absolute inset-x-0 bottom-0 p-6">
                         <h3 className="text-2xl font-bold text-white mb-2">{category.title}</h3>
-                        <p className="text-gray-200 mb-4">{category.description}</p>
-                        <span
-                          className="inline-flex items-center text-brand-400 group-hover:text-brand-300 transition-colors"
+                        
+                        <motion.div
+                          initial={false}
+                          animate={{ height: expandedCard === category.$id ? 'auto' : '4.5rem' }}
+                          className="overflow-hidden"
                         >
-                          Learn More
-                          <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </span>
+                          {expandedCard === category.$id ? (
+                            <>
+                              <div className="text-gray-200 mb-4 prose prose-sm prose-invert">
+                                {category.details}
+                              </div>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setExpandedCard(null);
+                                }}
+                                className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                              >
+                                <FaTimes className="w-4 h-4" />
+                              </button>
+                            </>
+                          ) : (
+                            <p className="text-gray-200 mb-4 line-clamp-2">{category.description}</p>
+                          )}
+                        </motion.div>
+                        
+                        {!expandedCard && (
+                          <span className="inline-flex items-center text-brand-400 group-hover:text-brand-300 transition-colors">
+                            {expandedCard === category.$id ? 'Show Less' : 'Learn More'}
+                            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </span>
+                        )}
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 </motion.div>
               ))}
             </div>
