@@ -214,6 +214,45 @@ const Products = () => {
         </div>
       </section>
 
+      {/* Applications Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Product Applications
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Our sustainable materials are versatile and can be used in various applications
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {applications.map((app, index) => (
+              <motion.div
+                key={app.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <div className="relative aspect-square rounded-2xl overflow-hidden mb-3">
+                  <img 
+                    src={app.image} 
+                    alt={app.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <h3 className="text-center text-gray-800 font-medium group-hover:text-brand-600 transition-colors duration-300">
+                  {app.title}
+                </h3>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="bg-white py-24">
         <div className="container mx-auto px-4">
@@ -270,6 +309,57 @@ const features = [
     title: 'Sustainable',
     description: 'Promotes circular economy and waste reduction.',
     icon: <FaRecycle className="w-6 h-6 text-brand-600" />
+  }
+];
+
+const applications = [
+  {
+    title: 'Kitchen',
+    image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&q=80'
+  },
+  {
+    title: 'Wardrobe',
+    image: 'https://images.unsplash.com/photo-1558997519-83c9716b1b07?auto=format&fit=crop&q=80'
+  },
+  {
+    title: 'Bathroom',
+    image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&q=80'
+  },
+  {
+    title: 'Office',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80'
+  },
+  {
+    title: 'Living Room',
+    image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80'
+  },
+  {
+    title: 'Outdoor',
+    image: 'https://images.unsplash.com/photo-1621389061334-c06572c66f76?auto=format&fit=crop&q=80'
+  },
+  {
+    title: 'Commercial',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80'
+  },
+  {
+    title: 'Industrial',
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80'
+  },
+  {
+    title: 'Retail',
+    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80'
+  },
+  {
+    title: 'Healthcare',
+    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80'
+  },
+  {
+    title: 'Education',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80'
+  },
+  {
+    title: 'Hospitality',
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80'
   }
 ];
 
