@@ -8,6 +8,7 @@ import { ContactMessage, getContactMessages, deleteContactMessage } from '../../
 import { CaseStudy, getCaseStudies, deleteCaseStudy } from '../../services/caseStudyService';
 import ProductCategoryModal from './ProductCategoryModal';
 import CaseStudyModal from './CaseStudyModal';
+import { convertToCSV, downloadCSV, downloadPDF } from '../../utils/exportUtils';
 
 type TabType = 'products' | 'messages' | 'case-studies';
 
@@ -421,6 +422,31 @@ const AdminDashboard = () => {
             <>
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-2xl font-bold text-gray-900">Contact Messages</h2>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => {
+                      const csv = convertToCSV(messages);
+                      downloadCSV(csv, `contact-messages-${new Date().toISOString().split('T')[0]}.csv`);
+                    }}
+                    className="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors flex items-center gap-2"
+                    title="Download as CSV (Excel)"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    CSV
+                  </button>
+                  <button
+                    onClick={() => downloadPDF(messages)}
+                    className="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors flex items-center gap-2"
+                    title="Download as PDF"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    PDF
+                  </button>
+                </div>
               </div>
 
               {error ? (
