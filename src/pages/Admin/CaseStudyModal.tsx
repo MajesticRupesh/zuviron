@@ -49,7 +49,7 @@ const CaseStudyModal = ({ caseStudy, onClose }: CaseStudyModalProps) => {
         // Upload new image
         const fileId = ID.unique();
         await storage.createFile(
-          STORAGE.PRODUCT_IMAGES, // You can use the same bucket or create a new one for case studies
+          STORAGE.PRODUCT_IMAGES, // You can use the same bucket or create a new one for blogs
           fileId,
           image
         );
@@ -73,7 +73,7 @@ const CaseStudyModal = ({ caseStudy, onClose }: CaseStudyModalProps) => {
       onClose();
     } catch (err) {
       console.error('Error:', err);
-      setError('Failed to save case study');
+      setError('Failed to save blog');
     } finally {
       setIsLoading(false);
     }
@@ -89,7 +89,7 @@ const CaseStudyModal = ({ caseStudy, onClose }: CaseStudyModalProps) => {
       >
         <div className="p-6">
           <h2 className="text-2xl font-bold mb-6">
-            {caseStudy ? 'Edit Case Study' : 'Add New Case Study'}
+            {caseStudy ? 'Edit Blog' : 'Add New Blog'}
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -164,7 +164,7 @@ const CaseStudyModal = ({ caseStudy, onClose }: CaseStudyModalProps) => {
                     Saving...
                   </div>
                 ) : (
-                  'Save Case Study'
+                  'Save Blog'
                 )}
               </button>
             </div>

@@ -79,7 +79,7 @@ const AdminDashboard = () => {
       const data = await getCaseStudies();
       setCaseStudies(data);
     } catch (err) {
-      setError('Failed to load case studies');
+      setError('Failed to load blogs');
       console.error('Error:', err);
     } finally {
       setIsLoading(false);
@@ -146,13 +146,13 @@ const AdminDashboard = () => {
   };
 
   const handleDeleteCaseStudy = async (caseStudy: CaseStudy) => {
-    if (window.confirm('Are you sure you want to delete this case study?')) {
+    if (window.confirm('Are you sure you want to delete this blog?')) {
       try {
         await deleteCaseStudy(caseStudy.$id);
         await fetchCaseStudies();
       } catch (err) {
         console.error('Delete error:', err);
-        setError('Failed to delete case study');
+        setError('Failed to delete blog');
       }
     }
   };
@@ -446,7 +446,7 @@ const AdminDashboard = () => {
                     className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
                   >
                     <FaPlus className="mr-2" />
-                    Add New Case Study
+                    Add New Blog
                   </button>
                 </div>
 
@@ -527,7 +527,7 @@ const AdminDashboard = () => {
 
                     {caseStudies.length === 0 && (
                       <div className="text-center py-12">
-                        <p className="text-gray-500">No case studies available.</p>
+                        <p className="text-gray-500">No blogs available.</p>
                       </div>
                     )}
                   </div>

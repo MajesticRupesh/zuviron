@@ -6,7 +6,7 @@ export const images = [
   'https://images.unsplash.com/photo-1536147116438-62679a5e01f2',
   'https://images.unsplash.com/photo-1557804506-669a67965ba0',
   
-  // Case studies images
+  // blogs images
   'https://images.unsplash.com/photo-1497366811353-6870744d04b2',
   'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf',
   'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9',

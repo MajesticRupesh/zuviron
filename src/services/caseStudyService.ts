@@ -20,7 +20,7 @@ export const getCaseStudies = async (): Promise<CaseStudy[]> => {
     );
     return response.documents;
   } catch (error) {
-    console.error('Error fetching case studies:', error);
+    console.error('Error fetching blogs:', error);
     throw error;
   }
 };
@@ -39,7 +39,7 @@ export const getCaseStudyBySlug = async (slug: string): Promise<CaseStudy | null
     
     return response.documents[0];
   } catch (error) {
-    console.error('Error fetching case study by slug:', error);
+    console.error('Error fetching blog by slug:', error);
     throw error;
   }
 };
@@ -54,7 +54,7 @@ export const createCaseStudy = async (data: Omit<CaseStudy, keyof Models.Documen
     );
     return response;
   } catch (error) {
-    console.error('Error creating case study:', error);
+    console.error('Error creating blog:', error);
     throw error;
   }
 };
@@ -69,7 +69,7 @@ export const updateCaseStudy = async (id: string, data: Partial<Omit<CaseStudy, 
     );
     return response;
   } catch (error) {
-    console.error('Error updating case study:', error);
+    console.error('Error updating blog:', error);
     throw error;
   }
 };
@@ -82,7 +82,7 @@ export const deleteCaseStudy = async (id: string): Promise<void> => {
       id
     );
   } catch (error) {
-    console.error('Error deleting case study:', error);
+    console.error('Error deleting blog:', error);
     throw error;
   }
 }; 
