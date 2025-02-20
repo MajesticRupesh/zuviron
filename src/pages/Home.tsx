@@ -40,17 +40,19 @@ const Home = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white"
+                    className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white space-y-2"
                   >
-                    Transform
-                    <GradientText gradient="from-brand-300 via-brand-400 to-brand-500" className="mx-2 md:mx-4">
-                      Waste
-                    </GradientText>
-                    into
-                    <br className="hidden sm:block" />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-200 via-brand-300 to-brand-100">
-                      Future
-                    </span>
+                    <div className="inline-flex flex-wrap items-center gap-2 md:gap-4 justify-center">
+                      <span>Transform</span>
+                      <GradientText gradient="from-brand-300 via-brand-400 to-brand-500">
+                        Waste
+                      </GradientText>
+                      <span>into</span>
+                      <GradientText gradient="from-brand-200 via-brand-300 to-brand-100">
+                        Future
+                      </GradientText>
+                    </div>
+                    
                   </motion.h1>
                   
                   <motion.p

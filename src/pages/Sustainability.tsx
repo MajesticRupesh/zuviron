@@ -187,12 +187,12 @@ const Sustainability = () => {
                   viewport={{ once: true }}
                   className="relative"
                 >
-                  <div className="bg-white p-6 rounded-xl shadow-lg relative z-10">
-                    <div className="w-16 h-16 bg-gradient-to-br from-brand-100 to-brand-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <div className="bg-white p-6 rounded-xl shadow-lg relative z-10 min-h-[240px] flex flex-col items-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-brand-100 to-brand-50 rounded-xl flex items-center justify-center mb-4">
                       {step.icon}
                     </div>
-                    <h3 className="text-lg font-semibold mb-2 text-center">{step.title}</h3>
-                    <p className="text-gray-600 text-center">{step.description}</p>
+                    <h3 className="text-lg font-semibold mb-3 text-center">{step.title}</h3>
+                    <p className="text-gray-600 text-center flex-grow">{step.description}</p>
                   </div>
                 </motion.div>
               ))}

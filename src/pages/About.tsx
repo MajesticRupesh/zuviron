@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaLeaf, FaUsers, FaLightbulb, FaGlobeAmericas, FaRecycle } from 'react-icons/fa';
+import { FaLeaf, FaUsers, FaLightbulb, FaGlobeAmericas, FaRecycle, FaShieldAlt, FaAward, FaChartLine } from 'react-icons/fa';
 import GradientText from '../components/ui/GradientText';
 import BackgroundPattern from '../components/ui/BackgroundPattern';
 
@@ -170,11 +170,7 @@ const About = () => {
                   <div className="absolute inset-0 bg-brand-100 rounded-xl transform transition-transform duration-300 group-hover:rotate-6" />
                   <div className="absolute inset-0 bg-brand-50 rounded-xl transform transition-transform duration-300 group-hover:-rotate-6" />
                   <div className="relative h-full flex items-center justify-center">
-                    <img 
-                      src={value.image}
-                      alt={value.title}
-                      className="w-10 h-10 object-cover rounded-lg"
-                    />
+                    {value.icon}
                   </div>
                 </div>
                 <h3 className="text-xl font-semibold mb-4">{value.title}</h3>
@@ -255,17 +251,17 @@ const values = [
   {
     title: 'Sustainability',
     description: 'Committed to environmental stewardship and reducing waste through innovative solutions.',
-    image: 'https://images.unsplash.com/photo-1535687911897-88a42f3cda4f?auto=format&fit=crop&q=80'
+    icon: <FaLeaf className="w-8 h-8 text-brand-600" />
   },
   {
     title: 'Innovation',
     description: 'Continuously exploring new technologies and methods to improve our products and processes.',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80'
+    icon: <FaLightbulb className="w-8 h-8 text-brand-600" />
   },
   {
     title: 'Quality',
     description: 'Maintaining the highest standards in our products and services to ensure customer satisfaction.',
-    image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80'
+    icon: <FaAward className="w-8 h-8 text-brand-600" />
   }
 ];
 
