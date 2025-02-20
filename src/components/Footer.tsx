@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
-import { LOGO_LIGHT_URL } from '../utils/constants';
+import { LOGO_WITH_NAME_URL } from '../utils/constants';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,11 +13,10 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <img 
-                src={LOGO_LIGHT_URL} 
+                src={LOGO_WITH_NAME_URL} 
                 alt="Zuviron Logo" 
-                className="w-10 h-10 rounded"
+                className="h-10 w-auto"
               />
-              <h3 className="text-xl font-bold">Zuviron Innovations</h3>
             </div>
             <p className="text-gray-300">
               Transforming waste into sustainable building materials for a better tomorrow.

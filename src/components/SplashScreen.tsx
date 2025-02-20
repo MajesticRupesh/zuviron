@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { LOGO_LIGHT_URL } from '../utils/constants';
+import { LOGO_NAME_ONLY_URL, LOGO_URL, LOGO_WITH_NAME_URL } from '../utils/constants';
 
 const SplashScreen = () => {
   return (
@@ -12,11 +12,15 @@ const SplashScreen = () => {
           className="mb-8 flex flex-col items-center"
         >
           <img 
-            src={LOGO_LIGHT_URL} 
+            src={LOGO_URL} 
             alt="Zuviron Logo" 
-            className="w-24 h-24 mb-4 rounded"
+            className="w-24 h-24 mb-4"
           />
-          <span className="text-4xl md:text-6xl font-bold text-brand-600">Zuviron</span>
+          <img 
+            src={LOGO_NAME_ONLY_URL} 
+            alt="Zuviron" 
+            className="h-12 w-auto"
+          />
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
