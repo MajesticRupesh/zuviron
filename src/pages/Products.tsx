@@ -37,21 +37,21 @@ const Products = () => {
           <div className="grid grid-cols-3 h-full">
             <div className="relative overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1565108475579-8074e4fc7874?auto=format&fit=crop&q=80"
+                src="/product.webp"
                 alt="Sustainable materials"
                 className="absolute inset-0 w-full h-full object-cover transform scale-110 hover:scale-105 transition-transform duration-700"
               />
             </div>
             <div className="relative overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80"
+                src="/product.webp"
                 alt="Construction materials"
                 className="absolute inset-0 w-full h-full object-cover transform scale-110 hover:scale-105 transition-transform duration-700"
               />
             </div>
             <div className="relative overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80"
+                src="/product.webp"
                 alt="Eco-friendly solutions"
                 className="absolute inset-0 w-full h-full object-cover transform scale-110 hover:scale-105 transition-transform duration-700"
               />
@@ -154,27 +154,31 @@ const Products = () => {
                   viewport={{ once: true }}
                   className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="relative w-full pb-[75%]">
-                    <img 
-                      src={category.image} 
-                      alt={category.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-gray-900/20" />
-                    <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                      <h3 className="text-2xl font-bold text-white mb-2">{category.title}</h3>
-                      <p className="text-gray-200 mb-4">{category.description}</p>
-                      <Link
-                        to={`/products/${category.slug}`}
-                        className="inline-flex items-center text-brand-400 hover:text-brand-300 transition-colors"
-                      >
-                        Learn More
-                        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </Link>
+                  <Link
+                    to={`/products/${category.slug}`}
+                    className="block h-full focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded-2xl"
+                  >
+                    <div className="relative w-full pb-[120%]">
+                      <img 
+                        src={category.image} 
+                        alt={category.title}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 p-6">
+                        <h3 className="text-2xl font-bold text-white mb-2">{category.title}</h3>
+                        <p className="text-gray-200 mb-4">{category.description}</p>
+                        <span
+                          className="inline-flex items-center text-brand-400 group-hover:text-brand-300 transition-colors"
+                        >
+                          Learn More
+                          <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>

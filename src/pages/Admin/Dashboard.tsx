@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaPlus, FaEdit, FaTrash, FaSignOutAlt, FaInbox, FaBoxes, FaBook } from 'react-icons/fa';
+import { FaPlus, FaEdit, FaTrash, FaSignOutAlt, FaInbox, FaBoxes, FaBook, FaComments, FaUsers } from 'react-icons/fa';
 import { account } from '../../config/appwrite';
 import { ProductCategory, getProductCategories, deleteProductCategory } from '../../services/productService';
 import { ContactMessage, getContactMessages, deleteContactMessage } from '../../services/contactService';
@@ -10,7 +10,7 @@ import ProductCategoryModal from './ProductCategoryModal';
 import CaseStudyModal from './CaseStudyModal';
 import { convertToCSV, downloadCSV, downloadPDF } from '../../utils/exportUtils';
 
-type TabType = 'products' | 'messages' | 'case-studies';
+type TabType = 'products' | 'messages' | 'case-studies' | 'live-chat' | 'client-management';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -196,7 +196,7 @@ const AdminDashboard = () => {
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
           {/* Tabs */}
-          <div className="border-b border-gray-200 mb-6">
+          <div className="border-b border-gray-200">
             <nav className="-mb-px flex space-x-8">
               <button
                 onClick={() => setActiveTab('products')}
@@ -230,6 +230,28 @@ const AdminDashboard = () => {
               >
                 <FaInbox className="mr-2" />
                 Messages
+              </button>
+              <button
+                onClick={() => setActiveTab('live-chat')}
+                className={`${
+                  activeTab === 'live-chat'
+                    ? 'border-green-500 text-green-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                } whitespace-nowrap py-4 px-1 border-b-2 font-medium flex items-center`}
+              >
+                <FaComments className="mr-2" />
+                Live Chat
+              </button>
+              <button
+                onClick={() => setActiveTab('client-management')}
+                className={`${
+                  activeTab === 'client-management'
+                    ? 'border-green-500 text-green-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                } whitespace-nowrap py-4 px-1 border-b-2 font-medium flex items-center`}
+              >
+                <FaUsers className="mr-2" />
+                Client Management
               </button>
             </nav>
           </div>
@@ -418,7 +440,7 @@ const AdminDashboard = () => {
                 </div>
               )}
             </>
-          ) : (
+          ) : activeTab === 'messages' ? (
             <>
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-2xl font-bold text-gray-900">Contact Messages</h2>
@@ -497,6 +519,44 @@ const AdminDashboard = () => {
                   )}
                 </div>
               )}
+            </>
+          ) : activeTab === 'live-chat' ? (
+            <>
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-900">Live Chat with Clients</h2>
+              </div>
+              <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <FaComments className="mx-auto h-16 w-16 text-gray-400 mb-4" />
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Coming Soon</h3>
+                  <p className="text-gray-600">
+                    Live chat functionality will be available in the next update. Stay tuned!
+                  </p>
+                </motion.div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-900">Client Management</h2>
+              </div>
+              <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <FaUsers className="mx-auto h-16 w-16 text-gray-400 mb-4" />
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Coming Soon</h3>
+                  <p className="text-gray-600">
+                    Client management features including profiles, history, and analytics will be available in the next update.
+                  </p>
+                </motion.div>
+              </div>
             </>
           )}
         </div>

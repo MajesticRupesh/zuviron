@@ -116,7 +116,7 @@ const ProductDetails = () => {
           >
             <button
               onClick={() => navigate('/products')}
-              className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors mb-8"
+              className="flex items-center gap-2 text-brand-400 hover:text-brand-300 transition-colors mb-8"
             >
               <FaArrowLeft /> Back to Products
             </button>

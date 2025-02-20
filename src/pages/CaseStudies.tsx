@@ -123,9 +123,7 @@ const CaseStudies = () => {
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 {selectedCase.title}
               </h1>
-              <p className="text-xl text-gray-300 mb-4">
-                {selectedCase.description}
-              </p>
+              
               <p className="text-gray-400">
                 Published on {new Date(selectedCase.publishedAt).toLocaleDateString('en-US', {
                   year: 'numeric',
