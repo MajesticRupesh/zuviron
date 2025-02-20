@@ -194,7 +194,6 @@ const Sustainability = () => {
                     <h3 className="text-lg font-semibold mb-2 text-center">{step.title}</h3>
                     <p className="text-gray-600 text-center">{step.description}</p>
                   </div>
-                  <div className="hidden md:block absolute top-1/2 left-1/2 w-6 h-6 bg-brand-500 rounded-full -translate-x-1/2 -translate-y-1/2 shadow-lg z-20" />
                 </motion.div>
               ))}
             </div>

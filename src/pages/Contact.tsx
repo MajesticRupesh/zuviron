@@ -109,8 +109,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Our Location</h3>
                     <p className="text-gray-600">
-                      123 Innovation Street<br />
-                      Tech City, TC 12345
+                      703, Kanjurvinayak, Chsl Datar Colony Bhandup, Mumbai, Maharashtra, India, 400042
                     </p>
                   </div>
                 </div>
@@ -121,7 +120,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">+91 9821255584</p>
                   </div>
                 </div>
 
@@ -131,7 +130,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Email</h3>
-                    <p className="text-gray-600">info@zuviron.com</p>
+                    <p className="text-gray-600">admin@zuviron.com</p>
                   </div>
                 </div>
               </div>
@@ -270,41 +269,5 @@ const Contact = () => {
     </div>
   );
 };
-
-const contactInfo = [
-  {
-    title: 'Phone',
-    content: '+1 (555) 123-4567',
-    icon: <FaPhone />,
-  },
-  {
-    title: 'Email',
-    content: 'info@zuviron.com',
-    icon: <FaEnvelope />,
-  },
-  {
-    title: 'Address',
-    content: '123 Innovation Street, Tech City, TC 12345',
-    icon: <FaMapMarkerAlt />,
-  },
-];
-
-const socialLinks = [
-  {
-    name: 'LinkedIn',
-    url: '#',
-    icon: <FaLinkedin className="w-6 h-6" />,
-  },
-  {
-    name: 'Twitter',
-    url: '#',
-    icon: <FaTwitter className="w-6 h-6" />,
-  },
-  {
-    name: 'Instagram',
-    url: '#',
-    icon: <FaInstagram className="w-6 h-6" />,
-  },
-];
 
 export default Contact; 

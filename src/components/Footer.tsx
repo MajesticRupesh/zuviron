@@ -54,9 +54,9 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>Email: info@zuviron.com</li>
-              <li>Phone: +1 (555) 123-4567</li>
-              <li>Address: 123 Innovation Street, Tech City, TC 12345</li>
+              <li>Email: admin@zuviron.com</li>
+              <li>Phone: +91 9821255584</li>
+              <li>Address: 703, Kanjurvinayak, Chsl Datar Colony Bhandup, Mumbai, Maharashtra, India, 400042</li>
             </ul>
           </div>
 
