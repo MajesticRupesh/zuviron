@@ -16,7 +16,7 @@ const CaseStudyCard = ({ caseStudy, index }: CaseStudyCardProps) => {
       className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
     >
       <Link 
-        to={`/case-studies/${caseStudy.slug}`}
+        to={`/blogs/${caseStudy.slug}`}
         className="block h-full focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded-2xl"
       >
         <div className="relative w-full pb-[120%]">

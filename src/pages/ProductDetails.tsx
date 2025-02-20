@@ -6,6 +6,7 @@ import { ProductCategory, getProductBySlug } from '../services/productService';
 import { databases, DATABASE_ID, COLLECTIONS } from '../config/appwrite';
 import GradientText from '../components/ui/GradientText';
 import BackgroundPattern from '../components/ui/BackgroundPattern';
+import ReactMarkdown from 'react-markdown';
 
 const ProductDetails = () => {
   const { slug } = useParams();
@@ -146,8 +147,31 @@ const ProductDetails = () => {
               <h2 className="text-3xl font-bold mb-6 text-gray-900">
                 <span className="text-brand-400">Product Details</span>
               </h2>
-              <div className="text-gray-600 space-y-6 whitespace-pre-wrap">
-                {product.details}
+              <div className="text-gray-600 space-y-6">
+                <ReactMarkdown
+                  components={{
+                    // Style links
+                    a: (props) => (
+                      <a {...props} className="text-brand-600 hover:text-brand-700 transition-colors" />
+                    ),
+                    // Style images
+                    img: (props) => (
+                      <img
+                        {...props}
+                        className="rounded-lg shadow-md w-full object-cover my-8"
+                        loading="lazy"
+                      />
+                    ),
+                    // Style headings
+                    h1: (props) => <h1 {...props} className="text-3xl font-bold mb-6" />,
+                    h2: (props) => <h2 {...props} className="text-2xl font-bold mb-4" />,
+                    h3: (props) => <h3 {...props} className="text-xl font-bold mb-3" />,
+                    // Style paragraphs
+                    p: (props) => <p {...props} className="mb-4 leading-relaxed" />
+                  }}
+                >
+                  {product.details}
+                </ReactMarkdown>
               </div>
             </div>
           </motion.div>

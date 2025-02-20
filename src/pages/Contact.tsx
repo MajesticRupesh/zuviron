@@ -109,7 +109,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Our Location</h3>
                     <p className="text-gray-600">
-                      703, Kanjurvinayak, Chsl Datar Colony Bhandup, Mumbai, Maharashtra, India, 400042
+                      Mumbai, Maharashtra, India
                     </p>
                   </div>
                 </div>

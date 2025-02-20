@@ -151,7 +151,7 @@ const Sustainability = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 bg-gray-50 relative overflow-hidden">
+      {/* <section className="py-24 bg-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <BackgroundPattern color="text-gray-900" />
         </div>
@@ -199,10 +199,10 @@ const Sustainability = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Initiatives Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
+      {/* <section className="py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 mix-blend-multiply opacity-20">
           <BackgroundPattern color="text-brand-500" />
         </div>
@@ -255,7 +255,7 @@ const Sustainability = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

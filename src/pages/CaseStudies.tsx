@@ -6,6 +6,7 @@ import GradientText from '../components/ui/GradientText';
 import BackgroundPattern from '../components/ui/BackgroundPattern';
 import CaseStudyCard from '../components/CaseStudyCard';
 import { CaseStudy, getCaseStudies, getCaseStudyBySlug } from '../services/caseStudyService';
+import ReactMarkdown from 'react-markdown';
 
 const CaseStudies = () => {
   const { slug } = useParams();
@@ -34,7 +35,7 @@ const CaseStudies = () => {
       setCaseStudies(data);
       setSelectedCase(null); // Clear selected case when viewing list
     } catch (err) {
-      setError('Failed to load case studies');
+      setError('Failed to load blogs');
       console.error('Error:', err);
     } finally {
       setIsLoading(false);
@@ -49,10 +50,10 @@ const CaseStudies = () => {
         setSelectedCase(data);
         // Don't clear caseStudies here to maintain list state
       } else {
-        setError('Case study not found');
+        setError('Blog not found');
       }
     } catch (err) {
-      setError('Failed to load case study');
+      setError('Failed to load blog');
       console.error('Error:', err);
     } finally {
       setIsLoading(false);
@@ -60,7 +61,7 @@ const CaseStudies = () => {
   };
 
   const handleBack = () => {
-    navigate('/case-studies');
+    navigate('/blogs');
   };
 
   if (isLoading) {
@@ -83,7 +84,7 @@ const CaseStudies = () => {
             onClick={handleBack}
             className="inline-flex items-center px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors"
           >
-            <FaArrowLeft className="mr-2" /> Back to Case Studies
+            <FaArrowLeft className="mr-2" /> Back to Blogs
           </button>
         </div>
       </div>
@@ -118,7 +119,7 @@ const CaseStudies = () => {
                 onClick={handleBack}
                 className="flex items-center text-brand-400 hover:text-brand-300 transition-colors mb-8"
               >
-                <FaArrowLeft className="mr-2" /> Back to Case Studies
+                <FaArrowLeft className="mr-2" /> Back to Blogs
               </button>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 {selectedCase.title}
@@ -146,8 +147,31 @@ const CaseStudies = () => {
                 className="prose prose-lg max-w-none"
               >
                 <div className="bg-gray-50 rounded-2xl p-8 md:p-12 shadow-lg">
-                  <div className="text-gray-600 space-y-6 whitespace-pre-wrap">
-                    {selectedCase.description}
+                  <div className="text-gray-600 space-y-6">
+                    <ReactMarkdown
+                      components={{
+                        // Style links
+                        a: (props) => (
+                          <a {...props} className="text-brand-600 hover:text-brand-700 transition-colors" />
+                        ),
+                        // Style images
+                        img: (props) => (
+                          <img
+                            {...props}
+                            className="rounded-lg shadow-md w-full object-cover my-8"
+                            loading="lazy"
+                          />
+                        ),
+                        // Style headings
+                        h1: (props) => <h1 {...props} className="text-3xl font-bold mb-6" />,
+                        h2: (props) => <h2 {...props} className="text-2xl font-bold mb-4" />,
+                        h3: (props) => <h3 {...props} className="text-xl font-bold mb-3" />,
+                        // Style paragraphs
+                        p: (props) => <p {...props} className="mb-4 leading-relaxed" />
+                      }}
+                    >
+                      {selectedCase.description}
+                    </ReactMarkdown>
                   </div>
                 </div>
               </motion.div>
@@ -166,7 +190,7 @@ const CaseStudies = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 to-gray-900/80" />
           <img 
             src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80"
-            alt="Case Studies"
+            alt="Blogs"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0">
@@ -194,7 +218,7 @@ const CaseStudies = () => {
         </div>
       </section>
 
-      {/* Case Studies Grid */}
+      {/* Blogs Grid */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -209,7 +233,7 @@ const CaseStudies = () => {
 
           {caseStudies.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-gray-600">No case studies available at the moment.</p>
+              <p className="text-gray-600">No blogs available at the moment.</p>
             </div>
           )}
         </div>

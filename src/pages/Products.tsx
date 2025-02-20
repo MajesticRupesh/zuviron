@@ -99,12 +99,7 @@ const Products = () => {
               >
                 Request a Quote
               </Link>
-              <Link
-                to="/case-studies"
-                className="px-8 py-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all duration-300"
-              >
-                View Case Studies
-              </Link>
+              
             </div>
           </motion.div>
         </div>

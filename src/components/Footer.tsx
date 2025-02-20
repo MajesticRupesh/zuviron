@@ -38,8 +38,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/case-studies" className="text-gray-300 hover:text-white transition-colors">
-                  Case Studies
+                <Link to="/blogs" className="text-gray-300 hover:text-white transition-colors">
+                  Blogs
                 </Link>
               </li>
               <li>
@@ -56,7 +56,7 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-300">
               <li>Email: admin@zuviron.com</li>
               <li>Phone: +91 9821255584</li>
-              <li>Address: 703, Kanjurvinayak, Chsl Datar Colony Bhandup, Mumbai, Maharashtra, India, 400042</li>
+              <li>Address: Mumbai, Maharashtra, India</li>
             </ul>
           </div>
 
