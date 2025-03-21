@@ -95,13 +95,13 @@ const Products = () => {
               <span className="text-brand-400">Sustainable Building Materials</span>
             </motion.div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Innovative Solutions for{' '}
+              Sustainable Innovation for{' '}
               <GradientText gradient="from-brand-300 via-brand-400 to-brand-200">
-                Sustainable Construction
+                Every Space
               </GradientText>
             </h1>
             <p className="text-xl text-gray-300 mb-12">
-              Transform waste into high-performance building materials with our cutting-edge technology
+              Customizable, durable, and eco-friendly building materials.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link

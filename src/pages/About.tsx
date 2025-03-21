@@ -47,13 +47,13 @@ const About = () => {
               <span className="text-brand-400">Our Story</span>
             </motion.div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Building a{' '}
+              Rethinking Waste, <br/>
               <GradientText gradient="from-brand-300 via-brand-400 to-brand-200">
-                Sustainable Future
+                Reshaping the Future
               </GradientText>
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl">
-              Leading the way in sustainable building materials through innovative waste management solutions and eco-friendly practices.
+              Leading the way in sustainable building materials.
             </p>
           </motion.div>
         </div>
@@ -105,8 +105,11 @@ const About = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Our Mission & Vision
               </h2>
-              <p className="text-gray-600 mb-8 text-lg">
-                At Zuviron Innovations, we are committed to transforming waste materials into valuable building resources. Our focus begins with thermocol waste, but our vision extends to creating a comprehensive circular economy for various waste streams.
+              <p className="text-gray-600 mb-4 text-lg">
+                Our mission is to transform thermocol waste into high-value building materials, increasing recycling rates from 5% to 20% in the next three years while driving circular economy practices.
+              </p>
+              <p className="text-gray-600 mb-6 text-lg">
+                Our vision is to be pioneers in sustainable material solutions for the architecture and design sectors, continuously advancing eco-conscious innovation.
               </p>
               <div className="space-y-6">
                 {missionPoints.map((point, index) => (
@@ -231,18 +234,18 @@ const About = () => {
 
 const missionPoints = [
   {
-    title: 'Sustainable Innovation',
-    description: 'Developing cutting-edge solutions for waste management and recycling.',
+    title: 'Sustainability & Environmental Responsibility',
+    description: 'We reduce waste through eco-friendly processes with minimal carbon footprint.',
     icon: <FaLightbulb className="w-4 h-4 text-brand-600" />
   },
   {
-    title: 'Global Impact',
-    description: 'Creating positive environmental change on a global scale.',
+    title: 'Innovation & Design Excellence',
+    description: 'We create high-quality, functional, and visually appealing materials.',
     icon: <FaGlobeAmericas className="w-4 h-4 text-brand-600" />
   },
   {
-    title: 'Community Focus',
-    description: 'Building strong relationships with communities and stakeholders.',
+    title: 'Affordability & Accessibility',
+    description: 'We make sustainable materials cost-effective for broader adoption.',
     icon: <FaUsers className="w-4 h-4 text-brand-600" />
   }
 ];
