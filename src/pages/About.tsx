@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaLeaf, FaUsers, FaLightbulb, FaGlobeAmericas, FaRecycle, FaShieldAlt, FaAward, FaChartLine } from 'react-icons/fa';
+import { FaLeaf, FaUsers, FaLightbulb, FaGlobeAmericas, FaRecycle, FaShieldAlt, FaAward, FaChartLine, FaUniversity, FaHandshake, FaLandmark } from 'react-icons/fa';
 import GradientText from '../components/ui/GradientText';
 import BackgroundPattern from '../components/ui/BackgroundPattern';
 
@@ -184,7 +184,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Vision Section */}
+      {/* Collaborations Section */}
       <section className="relative py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white overflow-hidden">
         <div className="absolute inset-0 mix-blend-multiply opacity-20">
           <BackgroundPattern color="text-brand-500" />
@@ -199,34 +199,114 @@ const About = () => {
             className="max-w-4xl mx-auto text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-8">
-              Our Vision for the{' '}
+              Our{' '}
               <GradientText gradient="from-brand-300 via-brand-400 to-brand-200">
-                Future
+                Collaborations
               </GradientText>
             </h2>
             <p className="text-xl text-gray-300 mb-12">
-              We envision a world where waste is not a burden but a valuable resource, where sustainable practices are the norm, and where innovation drives positive environmental change.
+              We're proud to work with leading institutions and receive support from government bodies that share our vision for a sustainable future.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {visionPoints.map((point, index) => (
+              {collaborations.map((collab, index) => (
                 <motion.div
-                  key={point.title}
+                  key={collab.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
+                  className="group relative bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-300"
                 >
-                  <div className="w-12 h-12 bg-brand-500/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                    <FaRecycle className="w-6 h-6 text-brand-400" />
+                  {/* Background Pattern */}
+                  <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+                    <div className="absolute inset-0" style={{ 
+                      backgroundImage: `radial-gradient(circle at 1rem 1rem, rgba(255,255,255,0.1) 0.15rem, transparent 0.15rem)`,
+                      backgroundSize: '3rem 3rem'
+                    }} />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{point.title}</h3>
-                  <p className="text-gray-400">{point.description}</p>
+
+                  {/* Decorative Corner Lines */}
+                  <div className="absolute top-4 left-4 w-8 h-8">
+                    <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-brand-500/40 to-transparent" />
+                    <div className="absolute top-0 left-0 h-full w-px bg-gradient-to-b from-brand-500/40 to-transparent" />
+                  </div>
+                  <div className="absolute top-4 right-4 w-8 h-8">
+                    <div className="absolute top-0 right-0 w-full h-px bg-gradient-to-l from-brand-500/40 to-transparent" />
+                    <div className="absolute top-0 right-0 h-full w-px bg-gradient-to-b from-brand-500/40 to-transparent" />
+                  </div>
+                  <div className="absolute bottom-4 left-4 w-8 h-8">
+                    <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-brand-500/40 to-transparent" />
+                    <div className="absolute bottom-0 left-0 h-full w-px bg-gradient-to-t from-brand-500/40 to-transparent" />
+                  </div>
+                  <div className="absolute bottom-4 right-4 w-8 h-8">
+                    <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-l from-brand-500/40 to-transparent" />
+                    <div className="absolute bottom-0 right-0 h-full w-px bg-gradient-to-t from-brand-500/40 to-transparent" />
+                  </div>
+
+                  {/* Card Border Gradients */}
+                  <div className="absolute inset-0">
+                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                    <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-brand-500/20 via-white/10 to-transparent" />
+                    <div className="absolute inset-y-0 right-0 w-px bg-gradient-to-b from-brand-500/20 via-white/10 to-transparent" />
+                  </div>
+
+                  {/* Diagonal Lines */}
+                  <div className="absolute inset-0 overflow-hidden opacity-[0.03] pointer-events-none">
+                    <div className="absolute top-0 left-0 w-[200%] h-[200%] -translate-x-1/2 -translate-y-1/2" style={{ 
+                      backgroundImage: `repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0, rgba(255,255,255,0.1) 1px, transparent 1px, transparent 30px)` 
+                    }} />
+                  </div>
+
+                  {/* Enhanced Glowing Corner Accents */}
+                  <div className="absolute top-0 left-0 w-32 h-32">
+                    <div className="absolute w-24 h-24 bg-brand-500/10 blur-2xl rounded-full -translate-x-1/2 -translate-y-1/2" />
+                    <div className="absolute w-16 h-16 bg-brand-400/15 blur-xl rounded-full -translate-x-1/4 -translate-y-1/4" />
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-32 h-32">
+                    <div className="absolute w-24 h-24 bg-brand-400/10 blur-2xl rounded-full translate-x-1/2 translate-y-1/2" />
+                    <div className="absolute w-16 h-16 bg-brand-500/15 blur-xl rounded-full translate-x-1/4 translate-y-1/4" />
+                  </div>
+
+                  {/* Content Container */}
+                  <div className="relative">
+                    {/* Enhanced Icon Container */}
+                    <div className="relative w-16 h-16 mb-6 mx-auto">
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-500/20 to-brand-400/10 blur-xl opacity-75" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-500/30 to-brand-400/20 blur-lg" />
+                      <div className="relative h-full bg-brand-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        {collab.icon}
+                        <div className="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-transparent rounded-xl" />
+                      </div>
+                    </div>
+
+                    {/* Title with Underline Effect */}
+                    <div className="relative">
+                      <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-brand-300 transition-colors duration-300">
+                        {collab.title}
+                        <div className="absolute -bottom-1 left-0 w-12 h-px bg-gradient-to-r from-brand-500/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                      </h3>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 relative z-10">
+                      {collab.description}
+                    </p>
+                  </div>
+
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-brand-400/5 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-tl from-brand-500/5 via-brand-400/5 to-transparent" />
+                  </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
         </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" />
       </section>
     </div>
   );
@@ -268,21 +348,21 @@ const values = [
   }
 ];
 
-const visionPoints = [
+const collaborations = [
   {
-    title: 'Zero Waste Future',
-    description: 'Creating a world where all waste is transformed into valuable resources.',
-    icon: <FaRecycle className="w-6 h-6 text-brand-400" />
+    title: 'IIT Kanpur Partnership',
+    description: 'Strategic collaboration with IIT Kanpur for research and development in sustainable material innovation.',
+    icon: <FaUniversity className="w-8 h-8 text-brand-400" />
   },
   {
-    title: 'Global Sustainability',
-    description: 'Promoting sustainable practices across industries worldwide.',
-    icon: <FaGlobeAmericas className="w-6 h-6 text-brand-400" />
+    title: 'Government Support',
+    description: 'Received significant funding and support from government initiatives promoting sustainable technologies.',
+    icon: <FaLandmark className="w-8 h-8 text-brand-400" />
   },
   {
-    title: 'Innovation Leadership',
-    description: 'Setting new standards in sustainable construction technology.',
-    icon: <FaLightbulb className="w-6 h-6 text-brand-400" />
+    title: 'Industry Alliances',
+    description: 'Partnerships with leading construction and recycling companies to implement our solutions at scale.',
+    icon: <FaHandshake className="w-8 h-8 text-brand-400" />
   }
 ];
 

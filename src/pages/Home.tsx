@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { FaRecycle, FaIndustry, FaBuilding } from 'react-icons/fa';
 import ParallaxBackground from '../components/ui/ParallaxBackground';
 import AnimatedCard from '../components/ui/AnimatedCard';
 import FloatingElement from '../components/ui/FloatingElement';
@@ -170,25 +171,98 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {features.map((feature, index) => (
-              <AnimatedCard
+              <motion.div
                 key={feature.title}
-                delay={index * 0.2}
-                className="group backdrop-blur-lg bg-white/10 border border-white/20 hover:border-brand-400/30 transition-colors duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="relative group"
               >
-                <div className="p-8 md:p-10">
-                  <FloatingElement
-                    className="text-6xl mb-8 text-brand-300"
-                    delay={index * 0.2}
-                  >
-                    {feature.icon}
-                  </FloatingElement>
-                  <h3 className="text-2xl font-semibold mb-4 text-white group-hover:text-brand-300 transition-colors">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-300 text-lg !leading-[2]">{feature.description}</p>
+                <div className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-gray-800/95 via-gray-900/98 to-gray-900/95 shadow-lg transition-all duration-300 overflow-hidden backdrop-blur-sm">
+                  {/* Background Pattern */}
+                  <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+                    <div className="absolute inset-0" style={{ 
+                      backgroundImage: `radial-gradient(circle at 1rem 1rem, rgba(255,255,255,0.1) 0.15rem, transparent 0.15rem)`,
+                      backgroundSize: '3rem 3rem'
+                    }} />
+                  </div>
+
+                  {/* Decorative Corner Lines */}
+                  <div className="absolute top-4 left-4 w-8 h-8">
+                    <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-brand-500/40 to-transparent" />
+                    <div className="absolute top-0 left-0 h-full w-px bg-gradient-to-b from-brand-500/40 to-transparent" />
+                  </div>
+                  <div className="absolute top-4 right-4 w-8 h-8">
+                    <div className="absolute top-0 right-0 w-full h-px bg-gradient-to-l from-brand-500/40 to-transparent" />
+                    <div className="absolute top-0 right-0 h-full w-px bg-gradient-to-b from-brand-500/40 to-transparent" />
+                  </div>
+                  <div className="absolute bottom-4 left-4 w-8 h-8">
+                    <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-brand-500/40 to-transparent" />
+                    <div className="absolute bottom-0 left-0 h-full w-px bg-gradient-to-t from-brand-500/40 to-transparent" />
+                  </div>
+                  <div className="absolute bottom-4 right-4 w-8 h-8">
+                    <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-l from-brand-500/40 to-transparent" />
+                    <div className="absolute bottom-0 right-0 h-full w-px bg-gradient-to-t from-brand-500/40 to-transparent" />
+                  </div>
+
+                  {/* Decorative Elements */}
+                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+                  <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-brand-500/20 via-white/5 to-transparent" />
+                  <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-brand-500/20 via-white/5 to-transparent" />
+                  
+                  {/* Diagonal Lines */}
+                  <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-[0.03] pointer-events-none">
+                    <div className="absolute top-0 left-0 w-[200%] h-[200%] -translate-x-1/2 -translate-y-1/2" style={{ 
+                      backgroundImage: `repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0, rgba(255,255,255,0.1) 1px, transparent 1px, transparent 30px)` 
+                    }} />
+                  </div>
+
+                  {/* Enhanced Glowing Corner Accents */}
+                  <div className="absolute top-0 left-0 w-32 h-32">
+                    <div className="absolute w-24 h-24 bg-brand-500/10 blur-2xl rounded-full -translate-x-1/2 -translate-y-1/2" />
+                    <div className="absolute w-16 h-16 bg-brand-400/15 blur-xl rounded-full -translate-x-1/4 -translate-y-1/4" />
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-32 h-32">
+                    <div className="absolute w-24 h-24 bg-brand-400/10 blur-2xl rounded-full translate-x-1/2 translate-y-1/2" />
+                    <div className="absolute w-16 h-16 bg-brand-500/15 blur-xl rounded-full translate-x-1/4 translate-y-1/4" />
+                  </div>
+
+                  {/* Icon Container with Enhanced Glow */}
+                  <div className="relative mb-8 !w-fit">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-brand-500/20 to-brand-400/10 blur-xl opacity-75" />
+                    <div className="absolute -inset-1 bg-gradient-to-br from-brand-500/30 to-brand-400/20 blur-lg" />
+                    <div className="relative p-4 rounded-xl bg-gradient-to-br from-brand-500/10 to-brand-400/5 border border-brand-400/20 backdrop-blur-sm">
+                      <feature.icon className="w-10 h-10 text-brand-400" />
+                      {/* Icon Background Accent */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-transparent rounded-xl" />
+                    </div>
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-500/50 to-brand-400/50 opacity-0 group-hover:opacity-20 blur transition-opacity duration-500" />
+                  </div>
+
+                  {/* Content with Enhanced Styling */}
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent group-hover:from-brand-300 group-hover:to-brand-100 transition-all duration-300">
+                      {feature.title}
+                      {/* Title Underline Accent */}
+                      <div className="absolute -bottom-1 left-0 w-12 h-px bg-gradient-to-r from-brand-500/50 to-transparent" />
+                    </h3>
+                    <p className="text-gray-300 text-lg !leading-[2] group-hover:text-gray-200 transition-colors duration-300">
+                      {feature.description}
+                    </p>
+                  </div>
+
+                  {/* Enhanced Hover Effects */}
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-brand-400/5 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-tl from-brand-500/5 via-brand-400/5 to-transparent" />
+                    {/* Additional Hover Accent */}
+                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-400/30 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-500/0 via-brand-500/5 to-brand-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </AnimatedCard>
+
+              </motion.div>
             ))}
           </div>
         </div>
@@ -228,17 +302,17 @@ const features = [
   {
     title: 'Waste to Value Approach',
     description: 'We give discarded materials a new purpose, reducing environmental impact.',
-    icon: '🌱',
+    icon: FaRecycle,
   },
   {
     title: 'Improving the Polymer Lifecycle',
     description: 'We make materials last longer, ensuring they stay useful and sustainable.',
-    icon: '⭐',
+    icon: FaIndustry,
   },
   {
     title: 'Long-Term Applications',
     description: 'We make durable materials designed for long-lasting use in architecture and design.',
-    icon: '🎯',
+    icon: FaBuilding,
   },
 ];
 
