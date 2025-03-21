@@ -256,7 +256,7 @@ const Products = () => {
               Product Applications
             </h2>
             <p className="text-gray-600 text-lg">
-              Our sustainable materials are versatile and can be used in various applications
+              Versatile solutions for commercial, residential, individual, and industrial applications
             </p>
           </div>
 

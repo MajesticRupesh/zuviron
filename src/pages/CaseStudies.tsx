@@ -124,14 +124,6 @@ const CaseStudies = () => {
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 {selectedCase.title}
               </h1>
-              
-              <p className="text-gray-400">
-                Published on {new Date(selectedCase.publishedAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </p>
             </motion.div>
           </div>
         </section>
@@ -206,13 +198,13 @@ const CaseStudies = () => {
             className="max-w-3xl mx-auto text-center"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Our Success{' '}
+              Zuviron Chronicles - &nbsp;
               <GradientText gradient="from-brand-300 via-brand-400 to-brand-200">
-                Stories
+                Stories of Innovation.
               </GradientText>
             </h1>
             <p className="text-xl text-gray-300">
-              Discover how we've helped businesses transform their waste management and construction practices
+              Discover how we’re helping businesses and individuals make more responsible material choices.
             </p>
           </motion.div>
         </div>

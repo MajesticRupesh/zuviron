@@ -29,13 +29,6 @@ const CaseStudyCard = ({ caseStudy, index }: CaseStudyCardProps) => {
           <div className="absolute inset-x-0 bottom-0 p-6">
             <h3 className="text-2xl font-bold text-white mb-2">{caseStudy.title}</h3>
             <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-300">
-                {new Date(caseStudy.publishedAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </span>
               <span className="inline-flex items-center text-brand-400 group-hover:text-brand-300 transition-colors">
                 Read More
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
