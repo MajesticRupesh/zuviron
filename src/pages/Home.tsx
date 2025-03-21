@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaRecycle, FaIndustry, FaBuilding } from 'react-icons/fa';
-import ParallaxBackground from '../components/ui/ParallaxBackground';
+import VideoBackground from '../components/ui/VideoBackground';
 import AnimatedCard from '../components/ui/AnimatedCard';
 import FloatingElement from '../components/ui/FloatingElement';
 import GradientText from '../components/ui/GradientText';
@@ -20,11 +20,10 @@ const Home = () => {
           className="absolute inset-0 origin-top"
           style={{ scale, opacity }}
         >
-          <ParallaxBackground 
-            imageUrl="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+          <VideoBackground 
+            videoUrl="/hero-background.mp4"
             className="h-full"
           >
-            
             <div className="absolute inset-0 mix-blend-color-dodge opacity-30">
               <BackgroundPattern color="text-brand-300" />
             </div>
@@ -53,7 +52,6 @@ const Home = () => {
                         Future
                       </GradientText>
                     </div>
-                    
                   </motion.h1>
                   
                   <motion.p
@@ -99,7 +97,7 @@ const Home = () => {
                 </div>
               </motion.div>
             </div>
-          </ParallaxBackground>
+          </VideoBackground>
         </motion.div>
       </div>
 
