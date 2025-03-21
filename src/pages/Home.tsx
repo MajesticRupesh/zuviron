@@ -43,13 +43,13 @@ const Home = () => {
                     className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white space-y-2"
                   >
                     <div className="inline-flex flex-wrap items-center gap-2 md:gap-4 justify-center">
-                      <span>Transform</span>
+                      <span>Innovating </span>
                       <GradientText gradient="from-brand-300 via-brand-400 to-brand-500">
-                        Waste
+                        Sustainability
                       </GradientText><br />
-                      <span>Building the</span>
+                      <span>One Material</span>
                       <GradientText gradient="from-brand-200 via-brand-300 to-brand-100">
-                        Future
+                        at a Time
                       </GradientText>
                     </div>
                   </motion.h1>
@@ -60,7 +60,7 @@ const Home = () => {
                     transition={{ duration: 0.8, delay: 0.8 }}
                     className="text-lg sm:text-xl md:text-2xl mb-8 md:mb-12 text-gray-200 max-w-2xl mx-auto px-4"
                   >
-                    Sustainable Materials for a Greener Tomorrow
+                    Revolutionizing materials for a better tomorrow.
                   </motion.p>
                   
                   <motion.div
@@ -135,7 +135,7 @@ const Home = () => {
                 </GradientText>
               </h2>
               <p className="text-gray-600 mb-8 text-lg !leading-[2]">
-                Zuviron is revolutionizing the way we repurpose discarded materials. By converting thermocol waste into high-value building materials, we promote circular economy practices and sustainable innovation. Our mission is to make eco-friendly solutions accessible, durable, and aesthetically superior.
+                Zuviron is redefining the future of materials by giving discarded materials a new purpose. We create innovative building solutions that embrace circular economy principles, extend material life cycles and reduce waste. We craft durable, high-quality materials that drive progress in architecture and design, fostering innovation and environmental responsibility in the industry.
               </p>
             </motion.div>
           </div>
@@ -303,13 +303,13 @@ const features = [
     icon: FaRecycle,
   },
   {
-    title: 'Improving the Polymer Lifecycle',
-    description: 'We make materials last longer, ensuring they stay useful and sustainable.',
+    title: 'Long-Term Applications',
+    description: 'We make durable materials designed for long-lasting use and multiple applications in architecture and design.',
     icon: FaIndustry,
   },
   {
-    title: 'Long-Term Applications',
-    description: 'We make durable materials designed for long-lasting use in architecture and design.',
+    title: 'Optimized for Every Need',
+    description: 'Our materials are cost-effective, aesthetically appealing, and fully customizable to suit diverse architectural and design needs.',
     icon: FaBuilding,
   },
 ];

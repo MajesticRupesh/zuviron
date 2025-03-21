@@ -53,7 +53,7 @@ const About = () => {
               </GradientText>
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl">
-              Leading the way in sustainable building materials.
+              For us, waste holds endless potential.
             </p>
           </motion.div>
         </div>
@@ -81,19 +81,6 @@ const About = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
               </div>
-              <div className="absolute -bottom-8 left-8 right-8">
-                <div className="bg-white rounded-xl p-6 shadow-xl">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center">
-                      <FaLeaf className="w-5 h-5 text-brand-600" />
-                    </div>
-                    <h3 className="text-xl font-semibold">Environmental Impact</h3>
-                  </div>
-                  <p className="text-gray-600">
-                    Reducing waste and carbon footprint through innovative recycling solutions.
-                  </p>
-                </div>
-              </div>
             </motion.div>
 
             <motion.div
@@ -106,10 +93,10 @@ const About = () => {
                 Our Mission & Vision
               </h2>
               <p className="text-gray-600 mb-4 text-lg">
-                Our mission is to transform thermocol waste into high-value building materials, increasing recycling rates from 5% to 20% in the next three years while driving circular economy practices.
+                Our mission is to transform waste into high-value building materials by adhering to circular economy practices. We have started this journey by repurposing thermocol waste, turning it into a durable and innovative alternative to pre-existing construction materials. We continue to explore new ways to redefine discarded materials.
               </p>
               <p className="text-gray-600 mb-6 text-lg">
-                Our vision is to be pioneers in sustainable material solutions for the architecture and design sectors, continuously advancing eco-conscious innovation.
+                Our vision is to be pioneers in sustainable material solutions for the architecture and design sectors, continuously advancing eco-conscious change. Our goal is to make the usage of recycled materials the norm and contribute to the greater purpose of increasing India’s recycling rates from 5% to 20% in the next three years.
               </p>
               <div className="space-y-6">
                 {missionPoints.map((point, index) => (
@@ -332,18 +319,18 @@ const missionPoints = [
 
 const values = [
   {
-    title: 'Sustainability',
-    description: 'Committed to environmental stewardship and reducing waste through innovative solutions.',
+    title: 'Sustainable Innovation',
+    description: 'We reduce waste through eco-conscious processes, extend material life cycles, and reduce the carbon footprint.',
     icon: <FaLeaf className="w-8 h-8 text-brand-600" />
   },
   {
-    title: 'Innovation',
-    description: 'Continuously exploring new technologies and methods to improve our products and processes.',
+    title: 'Ethical Responsibility',
+    description: 'We support local recyclers, artisans, and fair labour practices while maintaining transparency in our materials and processes.',
     icon: <FaLightbulb className="w-8 h-8 text-brand-600" />
   },
   {
-    title: 'Quality',
-    description: 'Maintaining the highest standards in our products and services to ensure customer satisfaction.',
+    title: 'Quality & Accessibility',
+    description: 'Our materials are durable, cost-effective, and customizable to meet the diverse needs of modern architecture and design.',
     icon: <FaAward className="w-8 h-8 text-brand-600" />
   }
 ];
