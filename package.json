@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/hanken-grotesk": "^5.2.5",
     "appwrite": "^17.0.0",
     "framer-motion": "^10.18.0",
     "jspdf": "^2.5.2",

@@ -24,10 +24,6 @@ const Home = () => {
             videoUrl="/hero-background.mp4"
             className="h-full"
           >
-            <div className="absolute inset-0 mix-blend-color-dodge opacity-30">
-              <BackgroundPattern color="text-brand-300" />
-            </div>
-            
             <div className="relative w-full h-full flex items-center justify-center">
               <motion.div
                 initial={{ opacity: 0, y: 100 }}

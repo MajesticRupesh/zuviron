@@ -41,7 +41,7 @@ export default {
         current: 'currentColor',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Hanken Grotesk', 'system-ui', '-apple-system', 'sans-serif'],
       },
     },
   },
