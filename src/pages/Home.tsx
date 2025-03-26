@@ -99,42 +99,42 @@ const Home = () => {
 
       {/* About Us Section */}
       <section className="relative py-32 md:py-40 bg-white overflow-hidden">
-        <div className="container mx-auto px-4 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="relative rounded-2xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80"
-                  alt="About Zuviron"
-                  className="w-full h-[500px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
-              </div>
-            </motion.div>
+        
 
+        {/* Content */}
+        <div className="container mx-auto px-4 relative py-16" style={{backgroundRepeat: "no-repeat", backgroundImage: `linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1441986300917-64674bd600d8")`, backgroundSize: "300%"}}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center"
+          >
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
+              initial={{ scale: 0.95 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block mb-6 px-6 py-2 rounded-full bg-brand-500/10 border border-brand-500/20"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                <GradientText gradient="from-brand-600 to-brand-400">
-                  Who We Are
-                </GradientText>
-              </h2>
-              <p className="text-gray-600 mb-8 text-lg !leading-[2]">
-                Zuviron is redefining the future of materials by giving discarded materials a new purpose. We create innovative building solutions that embrace circular economy principles, extend material life cycles and reduce waste. We craft durable, high-quality materials that drive progress in architecture and design, fostering innovation and environmental responsibility in the industry.
-              </p>
+              <span className="text-brand-400">Our Story</span>
             </motion.div>
-          </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              <GradientText gradient="from-brand-600 via-brand-500 to-brand-400">
+                Who We Are
+              </GradientText>
+            </h2>
+            
+            <p className="text-gray-100 mb-8 text-xl !leading-[2]">
+              Zuviron is redefining the future of materials by giving discarded materials a new purpose. We create innovative building solutions that embrace circular economy principles, extend material life cycles and reduce waste. We craft durable, high-quality materials that drive progress in architecture and design, fostering innovation and environmental responsibility in the industry.
+            </p>
+
+            {/* Decorative Elements */}
+            <div className="relative">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" />
+            </div>
+          </motion.div>
         </div>
       </section>
 
