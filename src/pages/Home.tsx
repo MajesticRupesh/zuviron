@@ -67,7 +67,7 @@ const Home = () => {
                   >
                     <Link
                       to="/products"
-                      className="group relative overflow-hidden rounded-full px-6 sm:px-8 py-3 sm:py-4 bg-brand-500 text-white hover:bg-brand-600 transition-all duration-300"
+                      className="group relative overflow-hidden rounded-md px-4 sm:px-4 py-3 sm:py-3 bg-brand-500/40 text-white hover:bg-brand-600 transition-all duration-300"
                     >
                       <span className="relative z-10 font-medium">Explore Products</span>
                       <motion.div
@@ -79,7 +79,7 @@ const Home = () => {
                     </Link>
                     <Link
                       to="/contact"
-                      className="group relative overflow-hidden rounded-full px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white hover:border-brand-400 transition-all duration-300"
+                      className="group relative overflow-hidden rounded-md px-4 sm:px-4 py-3 sm:py-3 bg-transparent border-2 border-white text-white hover:border-brand-400 transition-all duration-300"
                     >
                       <span className="relative z-10">Contact Us</span>
                       <motion.div
