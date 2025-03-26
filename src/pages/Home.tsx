@@ -98,7 +98,16 @@ const Home = () => {
       </div>
 
       {/* About Us Section */}
-      <section className="relative py-32 md:py-40 bg-white overflow-hidden">
+      <section className="relative py-32 md:py-40 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <BackgroundPattern color="text-brand-200" />
+        </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-brand-500/5 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-brand-500/5 to-transparent" />
+
         <div className="container mx-auto px-4 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -108,13 +117,39 @@ const Home = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative rounded-2xl overflow-hidden">
+              {/* Image Container with Enhanced Effects */}
+              <div className="relative rounded-2xl overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-500/20 to-brand-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <img 
                   src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80"
                   alt="About Zuviron"
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
+                
+                {/* Decorative Corner Accents */}
+                <div className="absolute top-6 left-6 w-12 h-12">
+                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-brand-400 to-transparent" />
+                  <div className="absolute top-0 left-0 h-full w-px bg-gradient-to-b from-brand-400 to-transparent" />
+                </div>
+                <div className="absolute top-6 right-6 w-12 h-12">
+                  <div className="absolute top-0 right-0 w-full h-px bg-gradient-to-l from-brand-400 to-transparent" />
+                  <div className="absolute top-0 right-0 h-full w-px bg-gradient-to-b from-brand-400 to-transparent" />
+                </div>
+                <div className="absolute bottom-6 left-6 w-12 h-12">
+                  <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-brand-400 to-transparent" />
+                  <div className="absolute bottom-0 left-0 h-full w-px bg-gradient-to-t from-brand-400 to-transparent" />
+                </div>
+                <div className="absolute bottom-6 right-6 w-12 h-12">
+                  <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-l from-brand-400 to-transparent" />
+                  <div className="absolute bottom-0 right-0 h-full w-px bg-gradient-to-t from-brand-400 to-transparent" />
+                </div>
+              </div>
+
+              {/* Floating Stats */}
+              <div className="absolute -bottom-8 -right-8 bg-white rounded-xl shadow-xl p-6 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                <div className="text-3xl font-bold text-brand-500 mb-1">2+</div>
+                <div className="text-sm text-gray-600">Years Experience</div>
               </div>
             </motion.div>
 
@@ -125,14 +160,71 @@ const Home = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                <GradientText gradient="from-brand-600 to-brand-400">
-                  Who We Are
-                </GradientText>
-              </h2>
-              <p className="text-gray-600 mb-8 text-lg !leading-[2]">
-                Zuviron is redefining the future of materials by giving discarded materials a new purpose. We create innovative building solutions that embrace circular economy principles, extend material life cycles and reduce waste. We craft durable, high-quality materials that drive progress in architecture and design, fostering innovation and environmental responsibility in the industry.
-              </p>
+              <div className="relative">
+                {/* Section Title with Enhanced Styling */}
+                <div className="inline-block mb-6">
+                  <h2 className="text-3xl md:text-4xl font-bold">
+                    <GradientText gradient="from-brand-600 to-brand-400">
+                      What We Do
+                    </GradientText>
+                  </h2>
+                  <div className="h-1 w-24 bg-gradient-to-r from-brand-500 to-brand-300 rounded-full mt-2" />
+                </div>
+
+                {/* Main Content with Enhanced Typography */}
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-gray-600 mb-8 font-bold text-lg !leading-[1] relative">
+                    <span className="absolute -left-4 top-0 text-4xl text-brand-400/20 font-serif">"</span>
+                    Redefining the future of materials by transforming waste into innovative, sustainable solutions.
+                    <span className="text-4xl text-brand-400/20 font-serif">"</span>
+                  </p>
+                  <p className="text-gray-600 mb-8 text-lg !leading-[2]">
+                    Creating innovative Building Materials that embrace circular economy principles, extend material life cycles, and reduce waste. Our durable, high quality solutions drive architectural and design innovation, fostering greater environmental responsibility across the industry.
+                  </p>
+                </div>
+
+                {/* Key Points Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12">
+                  {[
+                    { icon: FaRecycle, text: "Sustainable Materials" },
+                    { icon: FaIndustry, text: "Innovative Solutions" },
+                    { icon: FaBuilding, text: "Quality Construction" }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.2 }}
+                      viewport={{ once: true }}
+                      className="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
+                    >
+                      <div className="p-3 rounded-lg bg-brand-50">
+                        <item.icon className="w-6 h-6 text-brand-500" />
+                      </div>
+                      <span className="text-gray-700 font-medium">{item.text}</span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Call to Action Button */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  viewport={{ once: true }}
+                  className="mt-12"
+                >
+                  <Link
+                    to="/about"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors duration-300 group"
+                  >
+                    <span>Learn More</span>
+                    <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>
