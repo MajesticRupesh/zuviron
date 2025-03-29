@@ -121,7 +121,7 @@ const Products = () => {
       </section>
 
       {/* Product Categories */}
-      <section className="py-24 bg-white">
+      <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -216,7 +216,7 @@ const Products = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -249,7 +249,7 @@ const Products = () => {
       </section>
 
       {/* Applications Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -288,7 +288,7 @@ const Products = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-white py-24">
+      <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl overflow-hidden">
             <div className="relative px-6 py-24 md:px-12 text-center">

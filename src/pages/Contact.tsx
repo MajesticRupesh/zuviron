@@ -54,7 +54,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gray-900 text-white py-32 md:py-40 overflow-hidden">
         <div className="absolute inset-0">

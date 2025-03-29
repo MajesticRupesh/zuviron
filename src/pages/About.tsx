@@ -63,7 +63,7 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -124,7 +124,7 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 bg-gray-50 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <BackgroundPattern color="text-gray-900" />
         </div>
