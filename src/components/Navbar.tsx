@@ -16,7 +16,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-cyan-100 shadow-md sticky top-0 z-50">
+    <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-white/20">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -39,7 +39,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-gray-600 hover:text-brand-600 transition-colors duration-200"
+                className="text-gray-700 hover:text-brand-600 transition-colors duration-200 font-medium"
               >
                 {link.name}
               </Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-brand-600 focus:outline-none"
+              className="text-gray-700 hover:text-brand-600 focus:outline-none"
             >
               {isOpen ? (
                 <HiX className="h-6 w-6" />
