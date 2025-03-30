@@ -106,12 +106,27 @@ const Home = () => {
         </div>
       </div>
 
-{/*Quote Section*/}
-      <div className='w-full h-full text-center items-center'>
-        <h1>Sustainability can scale - bridging technology, earth-friendliness, and business</h1>
-        <p>- Madhura Jadhav, Founder</p>
-        <img className='h-16 w-16 rounded-full' src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80" alt="" />
-      </div>
+      {/* Quote Section */}
+      <section className="relative pb-16 overflow-hidden">
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="relative flex flex-col items-center ">
+             
+              {/* Quote Text */}
+              <blockquote className="text-3xl md:text-4xl font-bold text-gray-600 mb-8 leading-relaxed">
+                "Sustainability can scale - bridging technology, earth-friendliness, and business."
+              </blockquote>
+
+              {/* Author */}
+              <div className="text-gray-500 font-medium mb-6">
+                - Madhura Jadhav, Founder
+              </div>
+
+              <img className='h-16 w-16 rounded-full' src="/product.webp" alt="" srcset="" />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* About Us Section */}
       <section className="relative pb-32 md:pb-40 overflow-hidden">
