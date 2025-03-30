@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 5173,
+    port: 5174,
     strictPort: true,
     host: true,
     watch: {
@@ -13,7 +13,7 @@ export default defineConfig({
     },
     proxy: {
       '/ws': {
-        target: 'ws://localhost:5173',
+        target: 'ws://localhost:5174',
         ws: true
       }
     }

@@ -108,57 +108,15 @@ const Home = () => {
         <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-brand-500/5 to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-brand-500/5 to-transparent" />
 
-        <div className="container mx-auto px-4 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              {/* Image Container with Enhanced Effects */}
-              <div className="relative rounded-2xl overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-500/20 to-brand-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <img 
-                  src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80"
-                  alt="About Zuviron"
-                  className="w-full h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
-                
-                {/* Decorative Corner Accents */}
-                <div className="absolute top-6 left-6 w-12 h-12">
-                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-brand-400 to-transparent" />
-                  <div className="absolute top-0 left-0 h-full w-px bg-gradient-to-b from-brand-400 to-transparent" />
-                </div>
-                <div className="absolute top-6 right-6 w-12 h-12">
-                  <div className="absolute top-0 right-0 w-full h-px bg-gradient-to-l from-brand-400 to-transparent" />
-                  <div className="absolute top-0 right-0 h-full w-px bg-gradient-to-b from-brand-400 to-transparent" />
-                </div>
-                <div className="absolute bottom-6 left-6 w-12 h-12">
-                  <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-brand-400 to-transparent" />
-                  <div className="absolute bottom-0 left-0 h-full w-px bg-gradient-to-t from-brand-400 to-transparent" />
-                </div>
-                <div className="absolute bottom-6 right-6 w-12 h-12">
-                  <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-l from-brand-400 to-transparent" />
-                  <div className="absolute bottom-0 right-0 h-full w-px bg-gradient-to-t from-brand-400 to-transparent" />
-                </div>
-              </div>
-
-              {/* Floating Stats */}
-              <div className="absolute -bottom-8 -right-8 bg-white rounded-xl shadow-xl p-6 transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                <div className="text-3xl font-bold text-brand-500 mb-1">2+</div>
-                <div className="text-sm text-gray-600">Years Experience</div>
-              </div>
-            </motion.div>
-
+        <div className="relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="relative"
+              className="relative px-4 lg:px-8 py-12 lg:py-24"
             >
               <div className="relative">
                 {/* Section Title with Enhanced Styling */}
@@ -183,28 +141,6 @@ const Home = () => {
                   </p>
                 </div>
 
-                {/* Key Points Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12">
-                  {[
-                    { icon: FaRecycle, text: "Sustainable Materials" },
-                    { icon: FaIndustry, text: "Innovative Solutions" },
-                    { icon: FaBuilding, text: "Quality Construction" }
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.2 }}
-                      viewport={{ once: true }}
-                      className="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
-                    >
-                      <div className="p-3 rounded-lg bg-brand-50">
-                        <item.icon className="w-6 h-6 text-brand-500" />
-                      </div>
-                      <span className="text-gray-700 font-medium">{item.text}</span>
-                    </motion.div>
-                  ))}
-                </div>
 
                 {/* Call to Action Button */}
                 <motion.div
@@ -226,6 +162,24 @@ const Home = () => {
                 </motion.div>
               </div>
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative w-full h-[600px] lg:h-full"
+            >
+              {/* Image Container with Enhanced Effects */}
+              <div className="relative w-full h-full group">
+                <img 
+                  src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80"
+                  alt="About Zuviron"
+                  className="w-full h-full object-cover duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
