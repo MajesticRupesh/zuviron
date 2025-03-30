@@ -9,7 +9,6 @@ import BackgroundPattern from '../components/ui/BackgroundPattern';
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.3]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.7]);
 
   return (
@@ -18,7 +17,7 @@ const Home = () => {
       <div className="relative min-h-screen perspective-1000">
         <motion.div 
           className="absolute inset-0 origin-top"
-          style={{ scale, opacity }}
+          style={{  opacity }}
         >
           <VideoBackground 
             videoUrl="/hero-background.mp4"
@@ -97,15 +96,31 @@ const Home = () => {
         </motion.div>
       </div>
 
+      <div className='w-full relative h-full'>
+        <video autoPlay loop muted className='w-full h-[300px] lg:h-[500px] object-cover'>
+          <source src='/hero-background.mp4' type='video/mp4'></source>
+        </video>
+        <div className='flex flex-col absolute top-0 left-0 bg-white w-full h-full text-cyan-500 flex items-center justify-center mix-blend-screen'>
+          <h1 className='text-3xl lg:text-5xl'>Waste</h1>
+          <h1 className='text-5xl lg:text-[180px]'>Redefined</h1>
+        </div>
+      </div>
+
+{/*Quote Section*/}
+      <div className='w-full h-full text-center items-center'>
+        <h1>Sustainability can scale - bridging technology, earth-friendliness, and business</h1>
+        <p>- Madhura Jadhav, Founder</p>
+        <img className='h-16 w-16 rounded-full' src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80" alt="" />
+      </div>
+
       {/* About Us Section */}
-      <section className="relative py-32 md:py-40 overflow-hidden">
+      <section className="relative pb-32 md:pb-40 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-[0.03]">
           <BackgroundPattern color="text-brand-200" />
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-brand-500/5 to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-brand-500/5 to-transparent" />
 
         <div className="relative">
@@ -247,7 +262,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 md:py-24 overflow-hidden">
+      <section className="relative py-10 md:py-12 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -255,7 +270,7 @@ const Home = () => {
           viewport={{ once: true }}
           className="container mx-auto px-4 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900 !leading-[2]">
+          <h2 className="text-4xl md:text-7xl font-bold mb-8 text-gray-900 !leading-[1.5]">
             Ready to Make a{' '}
             <GradientText gradient="from-brand-600 via-brand-500 to-brand-700" className="inline-block">
               Change?
