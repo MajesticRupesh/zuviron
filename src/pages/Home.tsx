@@ -97,36 +97,34 @@ const Home = () => {
       </div>
 
       <div className='w-full relative h-full'>
-        <video autoPlay loop muted className='w-full h-[300px] lg:h-[500px] object-cover'>
+        <video autoPlay loop muted className='w-full h-[200px] lg:h-[300px] xl:h-[400px] object-cover'>
           <source src='/hero-background.mp4' type='video/mp4'></source>
         </video>
-        <div className='flex flex-col absolute top-0 left-0 bg-white w-full h-full text-cyan-500 flex items-center justify-center mix-blend-screen'>
+        <div className='flex flex-col absolute top-0 left-0 bg-white w-full h-full text-cyan-500 flex items-center justify-end mix-blend-screen'>
           <h1 className='text-3xl lg:text-5xl'>Waste</h1>
-          <h1 className='text-5xl lg:text-[180px]'>Redefined</h1>
+          <h1 className='text-5xl lg:text-[180px] xl:text-[240px] lg:font-black'>Redefined</h1>
+        </div>
+        
+      </div>
+
+      <div className='w-full mb-32'>
+        <div className='flex flex-col md:flex-row text-black justify-around pl-12'>
+          <div className='flex flex-col'>
+            <p className='text-lg font-bold'>380+</p>
+            <p>Petabytes Data Stored</p>
+          </div>
+          <div className='flex flex-col'>
+            <p className='text-lg font-bold'>{'>'}$60B</p>
+            <p>AUM</p>
+          </div>
+          <div className='flex flex-col'>
+            <p className='text-lg font-bold'>5 Billion +</p>
+            <p>Trades since inception</p>
+          </div>
         </div>
       </div>
 
-      {/* Quote Section */}
-      <section className="relative pb-16 overflow-hidden">
-        <div className="container mx-auto px-4 relative">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="relative flex flex-col items-center ">
-             
-              {/* Quote Text */}
-              <blockquote className="text-3xl md:text-4xl font-bold text-gray-600 mb-8 leading-relaxed">
-                "Sustainability can scale - bridging technology, earth-friendliness, and business."
-              </blockquote>
-
-              {/* Author */}
-              <div className="text-gray-500 font-medium mb-6">
-                - Madhura Jadhav, Founder
-              </div>
-
-              <img className='h-16 w-16 rounded-full' src="/product.webp" alt="" srcset="" />
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* About Us Section */}
       <section className="relative pb-32 md:pb-40 overflow-hidden">
@@ -152,7 +150,7 @@ const Home = () => {
                 {/* Section Title with Enhanced Styling */}
                 <div className="inline-block mb-6">
                   <h2 className="text-3xl md:text-4xl font-bold">
-                    <GradientText gradient="from-brand-600 to-brand-400">
+                    <GradientText gradient="text-[#041e42]">
                       What We Do
                     </GradientText>
                   </h2>
@@ -214,6 +212,28 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Quote Section */}
+      <section className="relative pb-16 overflow-hidden">
+        <div className="container mx-auto px-4 relative">
+          <div className=" mx-auto text-center">
+            <div className="relative flex flex-col items-center ">
+             
+              {/* Quote Text */}
+              <blockquote className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-600 mb-8 leading-relaxed">
+                <p>"Sustainability can scale - bridging technology,</p> <p>earth-friendliness, and business."</p>
+              </blockquote>
+
+              {/* Author */}
+              <div className="text-gray-500 font-medium mb-6">
+                - Madhura Jadhav, Founder
+              </div>
+
+              <img className='h-16 w-16 rounded-full' src="/product.webp" alt="" srcset="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section with Glassmorphism */}
       <section className="relative py-32 md:py-40 bg-gradient-to-b from-gray-900 to-gray-900 overflow-hidden" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/whyus.jpg")`, backgroundSize: "200%"}}>
         
@@ -225,14 +245,7 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto mb-20"
           >
-            <motion.div
-              initial={{ scale: 0.95 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-block mb-6 px-6 py-2 rounded-full bg-brand-500/10 border border-brand-500/20"
-            >
-              <span className="text-brand-400">Our Advantages</span>
-            </motion.div>
+            
             <div>
               <GradientText 
                 gradient="from-brand-200 via-brand-300 to-brand-100" 
