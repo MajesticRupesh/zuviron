@@ -99,8 +99,8 @@ const Home = () => {
           <source src='/hero-background.mp4' type='video/mp4'></source>
         </video>
         <div className='flex flex-col absolute top-0 left-0 bg-white striped-bg w-full h-full text-cyan-500 flex items-start justify-end mix-blend-screen'>
-          <h1 className='text-3xl lg:text-5xl pl-1 lg:pl-4'>Waste</h1>
-          <h1 className='text-5xl lg:text-[180px] xl:text-[240px] lg:font-black'>Redefined.</h1>
+          <h1 className='text-3xl lg:text-5xl pl-4 lg:pl-4'>Waste</h1>
+          <h1 className='text-5xl lg:text-[180px] xl:text-[240px] lg:font-black pl-3 lg:pl-0'>Redefined.</h1>
         </div>
         
       </div>
