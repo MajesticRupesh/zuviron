@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaLeaf, FaUsers, FaLightbulb, FaGlobeAmericas, FaRecycle, FaShieldAlt, FaAward, FaChartLine, FaUniversity, FaHandshake, FaLandmark } from 'react-icons/fa';
+import { FaLeaf, FaUsers, FaLightbulb, FaGlobeAmericas, FaAward, FaUniversity, FaHandshake, FaLandmark } from 'react-icons/fa';
 import GradientText from '../components/ui/GradientText';
 import BackgroundPattern from '../components/ui/BackgroundPattern';
 

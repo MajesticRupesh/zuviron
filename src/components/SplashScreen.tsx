@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { LOGO_NAME_ONLY_URL, LOGO_URL, LOGO_WITH_NAME_URL } from '../utils/constants';
+import { LOGO_NAME_ONLY_URL, LOGO_URL } from '../utils/constants';
 
 const SplashScreen = () => {
   return (

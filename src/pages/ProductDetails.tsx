@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { FaArrowLeft, FaLeaf, FaRecycle, FaCheck } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
 import { ProductCategory, getProductBySlug } from '../services/productService';
-import { databases, DATABASE_ID, COLLECTIONS } from '../config/appwrite';
+//import { databases, DATABASE_ID, COLLECTIONS } from '../config/appwrite';
 import GradientText from '../components/ui/GradientText';
 import BackgroundPattern from '../components/ui/BackgroundPattern';
 import ReactMarkdown from 'react-markdown';

@@ -34,10 +34,10 @@ const Products = () => {
     setExpandedCard(expandedCard === categoryId ? null : categoryId);
   };
 
-  const handleLearnMoreClick = (e: React.MouseEvent, slug: string) => {
-    e.stopPropagation(); // Prevent card click handler
-    window.location.href = `/products/${slug}`;
-  };
+  // const handleLearnMoreClick = (e: React.MouseEvent, slug: string) => {
+  //   e.stopPropagation(); // Prevent card click handler
+  //   window.location.href = `/products/${slug}`;
+  // };
 
   return (
     <div>

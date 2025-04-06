@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useState } from 'react';
-import { FaLeaf, FaRecycle, FaSeedling, FaSolarPanel, FaWind, FaTree, FaGlobeAmericas, FaLightbulb } from 'react-icons/fa';
 import GradientText from '../components/ui/GradientText';
 import BackgroundPattern from '../components/ui/BackgroundPattern';
 
@@ -284,62 +283,6 @@ const impactStats = [
     suffix: '',
     title: 'Trees Saved',
     description: 'Through our sustainable practices and initiatives'
-  }
-];
-
-const process = [
-  {
-    icon: <FaRecycle className="w-8 h-8 text-brand-600" />,
-    title: 'Collection',
-    description: 'Gathering thermocol waste from various sources'
-  },
-  {
-    icon: <FaLeaf className="w-8 h-8 text-brand-600" />,
-    title: 'Processing',
-    description: 'Sorting and cleaning the collected materials'
-  },
-  {
-    icon: <FaSeedling className="w-8 h-8 text-brand-600" />,
-    title: 'Innovation',
-    description: 'Converting waste into building materials'
-  },
-  {
-    icon: <FaTree className="w-8 h-8 text-brand-600" />,
-    title: 'Implementation',
-    description: 'Using materials in sustainable construction'
-  }
-];
-
-const initiatives = [
-  {
-    icon: <FaRecycle className="w-6 h-6 text-brand-400" />,
-    title: 'Waste Management',
-    description: 'Comprehensive recycling and waste reduction programs',
-    points: [
-      'Zero waste to landfill goal',
-      'Advanced sorting technologies',
-      'Circular economy approach'
-    ]
-  },
-  {
-    icon: <FaSolarPanel className="w-6 h-6 text-brand-400" />,
-    title: 'Renewable Energy',
-    description: 'Commitment to clean energy in our operations',
-    points: [
-      'Solar-powered facilities',
-      'Energy-efficient equipment',
-      'Smart energy management'
-    ]
-  },
-  {
-    icon: <FaWind className="w-6 h-6 text-brand-400" />,
-    title: 'Carbon Reduction',
-    description: 'Active measures to minimize carbon footprint',
-    points: [
-      'Carbon offset programs',
-      'Sustainable transportation',
-      'Green supply chain'
-    ]
   }
 ];
 
