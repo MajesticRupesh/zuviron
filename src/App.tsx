@@ -53,7 +53,7 @@ function App() {
           <Route path="*" element={
             <>
               <Navbar />
-              <main className="flex-grow">
+              <main className="flex-grow striped-bg">
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />

@@ -7,6 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
+        brandpantone: {
+          900: '#041e42'
+        },
         brand: {
           50: '#ecfeff',
           100: '#cffafe',

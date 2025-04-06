@@ -65,4 +65,16 @@
   .heading-3 {
     @apply text-2xl md:text-3xl font-bold;
   }
+
+  .striped-bg {
+    background-image: linear-gradient(
+      90deg,
+      transparent 50%,
+      rgba(0, 0, 0, 0.08) 50%,
+      rgba(0, 0, 0, 0.08) 51%,
+      transparent 51%,
+      transparent
+    );
+    background-size: 200px 600px;
+  }
 }

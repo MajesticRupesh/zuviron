@@ -100,15 +100,15 @@ const Home = () => {
         <video autoPlay loop muted className='w-full h-[200px] lg:h-[300px] xl:h-[400px] object-cover'>
           <source src='/hero-background.mp4' type='video/mp4'></source>
         </video>
-        <div className='flex flex-col absolute top-0 left-0 bg-white w-full h-full text-cyan-500 flex items-start justify-end mix-blend-screen'>
-          <h1 className='text-3xl lg:text-5xl'>Waste</h1>
+        <div className='flex flex-col absolute top-0 left-0 bg-white striped-bg w-full h-full text-cyan-500 flex items-start justify-end mix-blend-screen'>
+          <h1 className='text-3xl lg:text-5xl pl-1 lg:pl-4'>Waste</h1>
           <h1 className='text-5xl lg:text-[180px] xl:text-[240px] lg:font-black'>Redefined.</h1>
         </div>
         
       </div>
 
       <div className='w-full mb-32'>
-        <div className='flex flex-col md:flex-row text-black justify-around pl-12'>
+        <div className='flex flex-col md:flex-row text-black justify-around px-4 md:px-12 md:pr-32'>
           <div className='flex flex-col'>
             <p className='text-lg font-bold'>380+</p>
             <p>Petabytes Data Stored</p>
@@ -154,7 +154,7 @@ const Home = () => {
                       What We Do
                     </GradientText>
                   </h2>
-                  <div className="h-1 w-24 bg-gradient-to-r from-brand-500 to-brand-300 rounded-full mt-2" />
+                  <div className="h-1 w-24 bg-gradient-to-r from-brandpantone-900 to-blue-100 rounded-full mt-2" />
                 </div>
 
                 {/* Main Content with Enhanced Typography */}
@@ -180,7 +180,7 @@ const Home = () => {
                 >
                   <Link
                     to="/about"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors duration-300 group"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-brandpantone-900 text-white rounded-lg hover:bg-brand-600 transition-colors duration-300 group"
                   >
                     <span>Learn More</span>
                     <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -214,8 +214,8 @@ const Home = () => {
       {/* Quote Section */}
       <section className="relative pb-16 overflow-hidden">
         <div className="container mx-auto px-4 relative">
-          <div className=" mx-auto text-center">
-            <div className="relative flex flex-col items-center ">
+          <div className="mx-auto text-center">
+            <div className="relative flex flex-col items-center">
              
               {/* Quote Text */}
               <blockquote className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-600 mb-8 leading-relaxed">
@@ -227,7 +227,7 @@ const Home = () => {
                 - Madhura Jadhav, Founder
               </div>
 
-              <img className='h-16 w-16 rounded-full' src="/product.webp" alt="" srcset="" />
+              <img className='h-16 w-16 rounded-full' src="/product.webp" alt="" srcSet="" />
             </div>
           </div>
         </div>
@@ -308,7 +308,7 @@ const Home = () => {
           </p>
           <Link
             to="/contact"
-            className="group relative overflow-hidden rounded-md px-4 sm:px-4 py-3 sm:py-3 bg-brand-500/75 text-white hover:bg-brand-600 transition-all duration-300"
+            className="group relative overflow-hidden rounded-md px-4 sm:px-4 py-3 sm:py-3 bg-brandpantone-900 text-white hover:bg-brand-600 transition-all duration-300"
           >
             <span className="relative z-10 font-medium">Get in Touch</span>
           </Link>
