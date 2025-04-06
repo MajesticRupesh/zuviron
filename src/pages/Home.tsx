@@ -100,9 +100,9 @@ const Home = () => {
         <video autoPlay loop muted className='w-full h-[200px] lg:h-[300px] xl:h-[400px] object-cover'>
           <source src='/hero-background.mp4' type='video/mp4'></source>
         </video>
-        <div className='flex flex-col absolute top-0 left-0 bg-white w-full h-full text-cyan-500 flex items-center justify-end mix-blend-screen'>
+        <div className='flex flex-col absolute top-0 left-0 bg-white w-full h-full text-cyan-500 flex items-start justify-end mix-blend-screen'>
           <h1 className='text-3xl lg:text-5xl'>Waste</h1>
-          <h1 className='text-5xl lg:text-[180px] xl:text-[240px] lg:font-black'>Redefined</h1>
+          <h1 className='text-5xl lg:text-[180px] xl:text-[240px] lg:font-black'>Redefined.</h1>
         </div>
         
       </div>
@@ -150,7 +150,7 @@ const Home = () => {
                 {/* Section Title with Enhanced Styling */}
                 <div className="inline-block mb-6">
                   <h2 className="text-3xl md:text-4xl font-bold">
-                    <GradientText gradient="text-[#041e42]">
+                    <GradientText gradient="!text-[#041e42]">
                       What We Do
                     </GradientText>
                   </h2>
@@ -198,13 +198,12 @@ const Home = () => {
               className="relative w-full h-[600px] lg:h-full"
             >
               {/* Image Container with Enhanced Effects */}
-              <div className="relative w-full h-full group">
+              <div className="relative w-3/4 group float-right">
                 <img 
-                  src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80"
+                  src="/triangle.webp"
                   alt="About Zuviron"
                   className="w-full h-full object-cover duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
               </div>
             </motion.div>
 
