@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter, FaInstagram, FaFacebook } from 'react-icons/fa';
 import { LOGO_WITH_NAME_URL } from '../utils/constants';
 
 const Footer = () => {
@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 lg:px-24 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
@@ -87,6 +87,14 @@ const Footer = () => {
                 rel="noopener noreferrer"
               >
                 <FaInstagram className="h-6 w-6" />
+              </a>
+              <a
+                href="#"
+                className="text-gray-300 hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebook className="h-6 w-6" />
               </a>
             </div>
           </div>
