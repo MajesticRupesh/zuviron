@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaRecycle, FaIndustry, FaBuilding } from 'react-icons/fa';
 import VideoBackground from '../components/ui/VideoBackground';
 import GradientText from '../components/ui/GradientText';
-import BackgroundPattern from '../components/ui/BackgroundPattern';
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
