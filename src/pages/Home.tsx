@@ -63,7 +63,7 @@ const Home = () => {
                   >
                     <Link
                       to="/products"
-                      className="group relative overflow-hidden rounded-md px-4 sm:px-4 py-3 sm:py-3 bg-brand-500/40 text-white hover:bg-brand-600 transition-all duration-300"
+                      className="group relative overflow-hidden px-4 sm:px-4 py-3 sm:py-3 bg-brand-500/40 text-white hover:bg-brand-600 transition-all duration-300"
                     >
                       <span className="relative z-10 font-medium">Explore Products</span>
                       <motion.div
@@ -184,7 +184,7 @@ const Home = () => {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative w-full h-[700px] lg:h-full"
+              className="relative hidden lg:block w-full h-[700px] lg:h-full"
             >
               {/* Image Container with Enhanced Effects */}
               <div className="relative w-full group float-right">
